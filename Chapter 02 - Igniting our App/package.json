@@ -1,0 +1,14 @@
+{
+  "name": "chapter-02---igniting-our-app",
+  "version": "1.0.0",
+  "description": "this is igniting our app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Remo",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
