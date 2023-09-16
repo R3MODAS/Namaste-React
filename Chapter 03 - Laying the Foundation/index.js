@@ -15,7 +15,18 @@ import ReactDOM from "react-dom/client";
 //     return <h1>Namaste React Functional Component</h1>;
 // }
 
-const HeadingComponent = () => (<h1>Namaste React Functional Component</h1>)
+// const TitleComponent = () => (
+//     <h1>This is the Title</h1>
+// )
+
+const title = <h1>Title</h1>;
+const HeadingComponent = () => (
+    <>
+        {/* <TitleComponent /> */}
+        {title}
+        <h1>Namaste React Functional Component</h1>
+    </>
+)
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-root.render(<HeadingComponent/>);
+root.render(<HeadingComponent />);
