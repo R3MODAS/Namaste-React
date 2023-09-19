@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(115, 30, 165);
+}
+
+.logo {
+  height: 60px;
+  border-radius: 50px;
+}
+
+.nav-items ul{
+    display: flex;
+    gap: 40px;
+}
+
+.nav-items ul li{
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.body{
+  padding: 15px;
+}
+
+.search{
+  padding: 10px;
+}
+
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.res-card{
+  width: 300px;
+  height: 300px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.res-card:hover{
+  transform: scale(0.95);
+}
+
+.res-logo{
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.res-name{
+  font-size: 1rem;
+}
+
+.res-rating{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.res-star{
+  width: 18px;
+}
+
+.res-items{
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.res-location{
+  font-size: 0.9rem;
+  color: gray;
+}
