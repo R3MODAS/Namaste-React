@@ -1,0 +1,723 @@
+{
+  "resData": [
+    {
+      "info": {
+        "id": "217031",
+        "name": "Domino's Pizza",
+        "cloudinaryImageId": "el6s8c8kmhrummfvsoty",
+        "locality": "Station Road",
+        "areaName": "Kalyani",
+        "costForTwo": "₹400 for two",
+        "cuisines": ["Pizzas", "Italian", "Pastas", "Desserts"],
+        "avgRating": 4.5,
+        "feeDetails": {
+          "restaurantId": "217031",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 800
+        },
+        "parentId": "2456",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "500+",
+        "sla": {
+          "deliveryTime": 30,
+          "serviceability": "SERVICEABLE",
+          "slaString": "30 mins",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextCloseTime": "2023-09-21 00:57:00",
+          "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "aggregatedDiscountInfoV3": {
+          "header": "₹100 OFF",
+          "subHeader": "ABOVE ₹999",
+          "discountTag": "FLAT DEAL"
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/dominos-pizza-station-road-kalyani-kanchrapara-217031",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "209751",
+        "name": "Panchu Gopal Dey's Food Plaza",
+        "cloudinaryImageId": "ovwyn7gwgvbk2ttvc1rv",
+        "locality": "Kanchrapara",
+        "areaName": "Kalyani",
+        "costForTwo": "₹250 for two",
+        "cuisines": ["Biryani", "Chinese", "Indian", "South Indian", "Tandoor"],
+        "avgRating": 4.1,
+        "feeDetails": {
+          "restaurantId": "209751",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 3800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 3800
+        },
+        "parentId": "154293",
+        "avgRatingString": "4.1",
+        "totalRatingsString": "5K+",
+        "sla": {
+          "deliveryTime": 30,
+          "lastMileTravel": 0.2,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "30 mins",
+          "lastMileTravelString": "0.2 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 11 am, today"
+        },
+        "badges": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "aggregatedDiscountInfoV3": {
+          "header": "60% OFF",
+          "subHeader": "UPTO ₹120"
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/panchu-gopal-deys-food-plaza-kalyani-kanchrapara-209751",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "310829",
+        "name": "Dron",
+        "cloudinaryImageId": "hyowrtrk1wuqz2eqba2d",
+        "locality": "Halisahar",
+        "areaName": "Kanchrapara Loco",
+        "costForTwo": "₹300 for two",
+        "cuisines": ["Chinese", "Snacks"],
+        "avgRating": 3.7,
+        "feeDetails": {
+          "restaurantId": "310829",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 3800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 3800
+        },
+        "parentId": "18726",
+        "avgRatingString": "3.7",
+        "totalRatingsString": "500+",
+        "sla": {
+          "deliveryTime": 44,
+          "lastMileTravel": 0.2,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "44 mins",
+          "lastMileTravelString": "0.2 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 11:59 am, today"
+        },
+        "badges": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "aggregatedDiscountInfoV3": {
+          "header": "₹150 OFF",
+          "subHeader": "ABOVE ₹599",
+          "discountTag": "FLAT DEAL"
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/dron-halisahar-kanchrapara-loco-kanchrapara-310829",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "754903",
+        "name": "Rajmahal Cuisine By Hotel Mahal",
+        "cloudinaryImageId": "a19e7e777fbfff1c318040237e136131",
+        "locality": "Netaji Subhas Path",
+        "areaName": "SanityTestArea",
+        "costForTwo": "₹500 for two",
+        "cuisines": ["Chinese", "Indian", "Beverages", "Tandoor"],
+        "feeDetails": {
+          "restaurantId": "754903",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 800
+        },
+        "parentId": "446573",
+        "avgRatingString": "--",
+        "sla": {
+          "deliveryTime": 32,
+          "lastMileTravel": 0.2,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "32 mins",
+          "lastMileTravelString": "0.2 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 12 noon, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/rajmahal-cuisine-by-hotel-mahal-netaji-subhas-path-sanitytestarea-kanchrapara-754903",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "636843",
+        "name": "Food Junction",
+        "cloudinaryImageId": "pkliwuosvbqkucxjviwn",
+        "locality": "Kanchrapara",
+        "areaName": "Halisahar",
+        "costForTwo": "₹300 for two",
+        "cuisines": ["Biryani", "Tandoor", "Chinese"],
+        "avgRating": 3.3,
+        "feeDetails": {
+          "restaurantId": "636843",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 800
+        },
+        "parentId": "10867",
+        "avgRatingString": "3.3",
+        "totalRatingsString": "5",
+        "sla": {
+          "deliveryTime": 47,
+          "lastMileTravel": 0.4,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "47 mins",
+          "lastMileTravelString": "0.4 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 12 noon, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/food-junction-halisahar-kanchrapara-636843",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "303893",
+        "name": "Haji Biryani House",
+        "cloudinaryImageId": "hgzhzbqryqw59tzslics",
+        "locality": "Kalyani",
+        "areaName": "Kanchrapara Loco",
+        "costForTwo": "₹350 for two",
+        "cuisines": ["Biryani", "Mughlai", "Indian"],
+        "avgRating": 3.7,
+        "feeDetails": {
+          "restaurantId": "303893",
+          "fees": [
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 1900
+            },
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 1900
+        },
+        "parentId": "18592",
+        "avgRatingString": "3.7",
+        "totalRatingsString": "1K+",
+        "sla": {
+          "deliveryTime": 26,
+          "lastMileTravel": 0.6,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "26 mins",
+          "lastMileTravelString": "0.6 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 11:59 am, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/haji-biryani-house-kalyani-kanchrapara-loco-kanchrapara-303893",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "513398",
+        "name": "Queen Home Co.& Snacks",
+        "cloudinaryImageId": "t5okvmnzokrosciubjlw",
+        "locality": "Dharambir Colony",
+        "areaName": "Kalyani",
+        "costForTwo": "₹200 for two",
+        "cuisines": ["North Indian", "Chinese", "Biryani"],
+        "avgRating": 4,
+        "feeDetails": {
+          "restaurantId": "513398",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 800
+        },
+        "parentId": "307022",
+        "avgRatingString": "4.0",
+        "totalRatingsString": "100+",
+        "sla": {
+          "deliveryTime": 53,
+          "lastMileTravel": 0.6,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "53 mins",
+          "lastMileTravelString": "0.6 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 11:59 am, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/queen-home-co-and-snacks-dharambir-colony-kalyani-kanchrapara-513398",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "395681",
+        "name": "Rajoshik Restaurant",
+        "cloudinaryImageId": "nktlsgvysvmi67ayxctr",
+        "locality": "Kgr Path",
+        "areaName": "Halisahar",
+        "costForTwo": "₹300 for two",
+        "cuisines": ["Indian", "Chinese"],
+        "avgRating": 2.8,
+        "feeDetails": {
+          "restaurantId": "395681",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 800
+        },
+        "parentId": "253362",
+        "avgRatingString": "2.8",
+        "totalRatingsString": "20+",
+        "sla": {
+          "deliveryTime": 50,
+          "lastMileTravel": 0.6,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "50 mins",
+          "lastMileTravelString": "0.6 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 12 noon, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/rajoshik-restaurant-kgr-path-halisahar-kanchrapara-395681",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    },
+
+    {
+      "info": {
+        "id": "168722",
+        "name": "Master Bake Confectionery",
+        "cloudinaryImageId": "jrhcomo1sxzjfutvi1rk",
+        "locality": "Gandhi Mor",
+        "areaName": "Kanchrapara Loco",
+        "costForTwo": "₹250 for two",
+        "cuisines": ["Bakery"],
+        "avgRating": 4.1,
+        "feeDetails": {
+          "restaurantId": "168722",
+          "fees": [
+            {
+              "name": "BASE_TIME"
+            },
+            {
+              "name": "BASE_DISTANCE",
+              "fee": 3800
+            },
+            {
+              "name": "ANCILLARY_SURGE_FEE"
+            }
+          ],
+          "totalFee": 3800
+        },
+        "parentId": "133290",
+        "avgRatingString": "4.1",
+        "totalRatingsString": "500+",
+        "sla": {
+          "deliveryTime": 30,
+          "lastMileTravel": 0.6,
+          "serviceability": "SERVICEABLE_WITH_BANNER",
+          "slaString": "30 mins",
+          "lastMileTravelString": "0.6 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextOpenTimeMessage": "Opens next at 10 am, today"
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+          }
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+          }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {
+        "context": "seo-data-af62ab1d-7893-4d5f-bfdf-a954391f52e1"
+      },
+      "cta": {
+        "link": "https://www.swiggy.com/restaurants/master-bake-confectionery-gandhi-mor-kanchrapara-loco-kanchrapara-168722",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+      },
+      "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+    }
+  ]
+}
