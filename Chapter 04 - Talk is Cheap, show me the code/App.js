@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import data from "./ResData.json";
+import data from "./resdata.json";
 
 //! Dynamic Data with one Object
 /*
@@ -177,11 +177,10 @@ const RestaurantCard = (props) => {
 };
 
 const Body = () => {
-  const resData = data.resData;
+  const resData = data?.resData;
 
   return (
     <div className="body">
-      <div className="search">Search</div>
       <div className="res-container">
         {/* Static Data  */}
         {/* <RestaurantCard
@@ -203,8 +202,8 @@ const Body = () => {
         {/* <RestaurantCard resData = {resData} /> */}
 
         {/* Dynamic Data with JSON */}
-        {resData.map((item,id) => (
-          <RestaurantCard key={id} item={item.info} />
+        {resData.map((item) => (
+          <RestaurantCard key={item.info.id} item={item.info} />
         ))}
 
       </div>

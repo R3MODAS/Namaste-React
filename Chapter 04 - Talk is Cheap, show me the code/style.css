@@ -42,9 +42,10 @@ li {
 }
 
 .res-container{
+  max-width: 1300px;
+  margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
