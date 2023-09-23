@@ -44,18 +44,44 @@ li {
   align-items: center;
 }
 
-button{
-  border: 0;
+button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+button:focus,
+:hover {
+  color: #000;
   outline: 0;
 }
 
 .filter-btn {
-  border: 1px solid #f1c40f;
+  border-color: #f1c40f;
   color: #000;
   background: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
-  transition: background 300ms ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.filter-btn:hover {
+  background-position: 0;
 }
 
 .res-container {
