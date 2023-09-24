@@ -5,8 +5,17 @@
   font-family: "Poppins", sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 li {
   list-style: none;
+}
+
+.center{
+  margin-top: 50px;
+  text-align: center;
 }
 
 .header {
@@ -27,7 +36,7 @@ li {
   gap: 40px;
 }
 
-.nav-items ul li {
+.nav-items ul li a {
   color: white;
   cursor: pointer;
   font-size: 1rem;

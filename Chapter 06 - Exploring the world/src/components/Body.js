@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [reslist, setReslist] = useState([]);
@@ -14,25 +15,36 @@ const Body = () => {
     );
 
     const json = await data.json();
-    // console.log(json);
 
     setReslist(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if(reslist.length === 0){
-    return <h1>Loading...</h1>
+  if (reslist.length === 0) {
+    return <Shimmer />;
   }
 
   return (
     <div className="body">
       <div className="filter">
-        <button className="filter-btn">Top Rated Restaurants</button>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filterlist = reslist.filter(
+              (item) => item.info.avgRating > 4
+            );
+            setReslist(filterlist);
+          }}
+        >
+          Top Rated Restaurants
+        </button>
       </div>
       <div className="res-container">
         {reslist.map((restaurant) => {
-          return <RestaurantCard key={restaurant.info.id} item={restaurant.info} />;
+          return (
+            <RestaurantCard key={restaurant.info.id} item={restaurant.info} />
+          );
         })}
       </div>
     </div>
