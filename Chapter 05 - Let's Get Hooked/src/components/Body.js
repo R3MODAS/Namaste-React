@@ -72,6 +72,14 @@ const Body = () => {
   //! Using json data
   const [reslist, setReslist] = useState(data?.resData);
 
+  //? We can do the same thing like this 
+  // const arr = useState(data?.resData);
+  // const [reslist, setReslist] = arr;
+  //  or 
+  // const reslist = arr[0];
+  // const setReslist = arr[1];
+  // console.log(arr);
+
   return (
     <div className="body">
       <div className="filter">
