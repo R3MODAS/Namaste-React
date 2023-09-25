@@ -42,8 +42,51 @@ li {
   font-size: 1rem;
 }
 
-.body {
-  padding: 15px;
+.menu{
+  display: none;
+}
+
+
+.sidebar{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  right: 0;
+  background-color: white;
+  transition: all 0.4s ease;
+}
+
+.sidebar.active{
+  left: 0;
+}
+
+.close{
+  cursor: pointer;
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+
+.close img{
+  width: 50px;
+}
+
+.sidebar-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 30px;
+}
+
+.sidebar-items li a{
+  font-size: 2rem;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .buttons {

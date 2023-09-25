@@ -7,6 +7,11 @@ const LOGO_URL =
 const STAR_URL =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/1077px-Star_icon_stylized.svg.png";
 
+const PATH =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png";
+
+const CLOSEBTN = "https://static.thenounproject.com/png/419880-200.png";
+
 // We can do this
-export { CDN_URL, STAR_URL };
+export { CDN_URL, STAR_URL, PATH, CLOSEBTN };
 export default LOGO_URL;
