@@ -1,0 +1,48 @@
+@media (max-width: 991px) {
+  .nav-items {
+    display: none;
+  }
+
+  .buttons {
+    gap: 20px;
+    margin: 20px 0;
+    flex-direction: column;
+  }
+
+  .search {
+    gap: 20px;
+  }
+
+  button {
+    font-size: 0.85rem;
+    padding: 1em 2em;
+    margin: 0;
+  }
+
+  .search input {
+    font-size: 0.85rem;
+    padding: 1em 2em;
+    font-weight: 400;
+  }
+
+  .menu {
+    cursor: pointer;
+    display: block;
+  }
+
+  .menu img {
+    width: 30px;
+    filter: invert(100%);
+  }
+
+  .shimmer-buttons {
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .shimmer-button {
+    height: 50px;
+    padding: 1em 2em;
+  }
+}
