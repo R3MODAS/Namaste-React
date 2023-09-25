@@ -3,7 +3,9 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [reslist, setReslist] = useState([]);
+  const [Reslist, setReslist] = useState([]);
+  const [Filterlist, setFilteredList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -15,33 +17,54 @@ const Body = () => {
     );
 
     const json = await data.json();
-
     setReslist(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredList(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if (reslist.length === 0) {
+  if (Reslist.length === 0) {
     return <Shimmer />;
   }
 
+  // console.log("Body Rendered");
+
   return (
     <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filterlist = reslist.filter(
-              (item) => item.info.avgRating > 4
-            );
-            setReslist(filterlist);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+      <div className="buttons">
+        <div className="filter">
+          <button className="filter-btn" onClick={() => {
+            const filterTopRes = Reslist.filter((res) => res.info.avgRating > 4);
+            setFilteredList(filterTopRes);
+          }}>
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search here"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              const filteredSearch = Reslist.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredList(filteredSearch);
+              setSearchText("");
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
       <div className="res-container">
-        {reslist.map((restaurant) => {
+        {Filterlist?.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.info.id} item={restaurant.info} />
           );

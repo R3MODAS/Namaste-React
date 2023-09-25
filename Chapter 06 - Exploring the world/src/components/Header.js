@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} alt="logo" />
+        <a href="/">
+          <img className="logo" src={LOGO_URL} alt="logo"/>
+        </a>
       </div>
       <nav className="nav-items">
         <ul>
@@ -24,9 +26,14 @@ const Header = () => {
             <a href="#">Cart</a>
           </li>
           <li>
-            <a href="#" onClick={() => {
-                setName(name === "Login" ? "Logout" : "Login")
-            }}>{name}</a>
+            <a
+              href="#"
+              onClick={() => {
+                setName(name === "Login" ? "Logout" : "Login");
+              }}
+            >
+              {name}
+            </a>
           </li>
         </ul>
       </nav>

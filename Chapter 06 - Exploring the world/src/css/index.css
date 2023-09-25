@@ -46,10 +46,11 @@ li {
   padding: 15px;
 }
 
-.filter {
+.buttons {
   margin: 20px 0 40px 0;
   display: flex;
   justify-content: center;
+  gap: 100px;
   align-items: center;
 }
 
@@ -74,12 +75,6 @@ button {
   font-weight: 700;
 }
 
-button:focus,
-:hover {
-  color: #000;
-  outline: 0;
-}
-
 .filter-btn {
   border-color: #f1c40f;
   color: #000;
@@ -91,6 +86,38 @@ button:focus,
 
 .filter-btn:hover {
   background-position: 0;
+  color: white;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search input{
+  padding: 1.2em 2.8em;
+  border-radius: 0.6em;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid #e74c3c;
+  transition: all 1s ease-in-out;
+}
+
+.search-btn{
+  border-color: #e74c3c;
+  color: #000;
+  background: linear-gradient(45deg, #e74c3c 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: all 1s ease-in-out;
+}
+
+.search-btn:hover{
+  background-position: 0;
+  color: white;
 }
 
 .res-container {
@@ -104,7 +131,7 @@ button:focus,
 
 .res-card {
   width: 300px;
-  height: 300px;
+  height: 250px;
   transition: all 0.4s ease;
   cursor: pointer;
 }
@@ -145,4 +172,39 @@ button:focus,
 .res-location {
   font-size: 0.9rem;
   color: gray;
+}
+
+.shimmer-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  margin: 60px 0;
+}
+
+.shimmer-button{
+  width: 300px;
+  height: 60px;
+  padding: 1.2em 2.8em;
+  border-radius: 0.6em;
+  background-color: rgb(206, 206, 206);
+}
+
+.shimmer-container{
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.shimmer-card{
+  border-radius: 15px;
+  width: 300px;
+  height: 200px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  background-color: rgb(206, 206, 206);
 }
