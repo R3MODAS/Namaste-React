@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [Reslist, setReslist] = useState([]);
@@ -18,10 +19,10 @@ const Body = () => {
     const json = await data.json();
     // console.log(json.data)
     setReslist(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredList(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -36,7 +37,7 @@ const Body = () => {
           <button
             className="filter-btn"
             onClick={() => {
-              const filterTopRes = Reslist.filter(
+              const filterTopRes = Reslist?.filter(
                 (res) => res.info.avgRating > 4
               );
               setFilteredList(filterTopRes);
@@ -55,7 +56,7 @@ const Body = () => {
           <button
             className="search-btn"
             onClick={() => {
-              const filteredSearch = Reslist.filter((res) =>
+              const filteredSearch = Reslist?.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredList(filteredSearch);
@@ -69,7 +70,9 @@ const Body = () => {
       <div className="res-container">
         {Filterlist?.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.info.id} item={restaurant.info} />
+            <Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}>
+              <RestaurantCard  item={restaurant.info} />
+            </Link>
           );
         })}
       </div>

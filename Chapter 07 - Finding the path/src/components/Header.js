@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [name, setName] = useState("Login");
   const [Sidebar, setSidebar] = useState("");
-  console.log("Header is Rendered");
 
   return (
     <>

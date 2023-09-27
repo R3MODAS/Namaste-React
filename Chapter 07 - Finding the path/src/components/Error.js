@@ -8,7 +8,7 @@ const Error = () => {
             <h1>{err.status}</h1>
             <h2>Oops!</h2>
             <span>Error 404 - {err.statusText}</span>
-            <p>{err.error.message}</p>
+            <p>{err.error?.message}</p>
             <div className="redirect">Wanna Travel Back Home ? <Link to="/">Home</Link>
             </div>
         </div>
