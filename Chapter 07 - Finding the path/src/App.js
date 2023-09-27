@@ -6,13 +6,13 @@ import About from "./components/About";
 import Error from "./components/Error";
 import "./css/index.css";
 import "./css/responsive.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
     </>
   );
 };
@@ -21,16 +21,23 @@ const appRouter = createBrowserRouter([
   {
     path : "/",
     element : <Home />,
+    children : [
+      {
+        path : "/",
+        element : <Body />
+      },
+      {
+        path : "/about",
+        element : <About />
+      },
+      {
+        path : "/contact",
+        element : <Contact />
+      }
+    ],
     errorElement : <Error />
   },
-  {
-    path : "/about",
-    element : <About />
-  },
-  {
-    path : "/contact",
-    element : <Contact />
-  }
+  
 ])
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));

@@ -18,14 +18,14 @@ const Body = () => {
     const json = await data.json();
     // console.log(json.data)
     setReslist(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if (Reslist.length === 0) {
+  if (Reslist?.length === 0) {
     return <Shimmer />;
   }
 
