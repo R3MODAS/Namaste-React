@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { MENUIMG, MENU_API } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import { MENU_API, MENU_IMG } from "../utils/constants";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
 
-  //   const params = useParams();
   const { resId } = useParams();
 
   useEffect(() => {
@@ -21,46 +20,48 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
-  const { name, cuisines } = resInfo?.cards[0]?.card?.card?.info;
+  const { name, cuisines, areaName } = resInfo?.cards[0]?.card?.card?.info;
 
   const title =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
       ?.title;
 
-  const itemCards =
+  const items =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
       ?.itemCards;
 
   return (
-    <div className="res-menu">
-      <div className="res-details">
-        <h2 className="res-name">{name}</h2>
-        <p className="res-cuisines">{cuisines.join(", ")}</p>
-      </div>
-      <h3 className="title">
-        {title} ({itemCards?.length})
-      </h3>
-      <button className="toggle-btn">Veg only</button>
-      {itemCards?.map((item) => (
-        <ul key={item.card.info.id} className="menu-item-container">
-          <li className="menu-item">
-            <div className="menu-left">
-              <div className="d-none">
-                {item.card.info.itemAttribute.vegClassifier}
+    <div className="res-menu container">
+      <h2 className="rest-name">{name}</h2>
+      <p className="rest-cuisine">{cuisines.join(", ")}</p>
+      <div className="rest-area">{areaName}</div>
+      <div className="dotted-line"></div>
+      <div className="res-menu-container">
+        <h3 className="title">
+          {title} ({items?.length})
+        </h3>
+        <ul>
+          {items?.map((item) => (
+            <li className="res-menu-list" key={item.card.info.id}>
+              <div className="item-left">
+                <div className="item-name">{item.card.info.name}</div>
+                <div className="item-price">₹{item.card.info.price / 100}</div>
+                <p className="item-desc">{item.card.info.description}</p>
               </div>
-              <div className="item-name">{item.card.info.name}</div>
-              <div className="item-price">₹{item.card.info.price / 100}</div>
-              <p className="item-desc">{item.card.info.description}</p>
-            </div>
-            <div className="menu-right">
-              {
-                item.card.info.imageId === undefined ? "" : <img src={`${MENUIMG}/${item?.card?.info.imageId}`} alt="img" />
-              }
-            </div>
-          </li>
-          <div className="line"></div>
+              <div className="item-right">
+                {item.card.info.imageId && (
+                  <img
+                    src={`${MENU_IMG}/${item.card.info.imageId}`}
+                    alt="menu-img"
+                  />
+                )}
+                <button className="add-btn">Add</button>
+              </div>
+              {console.log(item.card.info)}
+            </li>
+          ))}
         </ul>
-      ))}
+      </div>
     </div>
   );
 };

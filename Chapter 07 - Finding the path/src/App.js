@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Body from "./components/Body";
-import Contact from "./components/Contact";
-import About from "./components/About";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import "./css/index.css";
@@ -12,7 +12,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <Header />
+      <Navbar />
       <Outlet />
     </>
   );

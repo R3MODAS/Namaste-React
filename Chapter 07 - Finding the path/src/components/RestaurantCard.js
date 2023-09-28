@@ -1,23 +1,30 @@
+import React from "react";
 import { CDN_URL, STAR_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
-  const { item } = props;
-  const { name, avgRating, cuisines, areaName, cloudinaryImageId } = item;
-
-  const imgsrc = `${CDN_URL}/${cloudinaryImageId}`;
+  const { resInfo } = props;
+  const { name, avgRating, cloudinaryImageId, cuisines, areaName } = resInfo;
+  const imgPath = `${CDN_URL}/${cloudinaryImageId}`;
 
   return (
-    <div className="res-card">
-      <img className="res-logo" src={imgsrc} alt="img" />
-      <h3 className="res-name">{name}</h3>
-      <h4 className="res-rating">
-        <img className="res-star" src={STAR_URL} alt="star" />
-        {avgRating}
-      </h4>
+    <>
+      <div className="res-item">
+        <img className="res-img" src={imgPath} alt="img" />
+        <h2 className="res-name">{name}</h2>
 
-      <div className="res-items">{cuisines.join(", ")}</div>
-      <div className="res-location">{areaName}</div>
-    </div>
+        {!avgRating ? (
+          ""
+        ) : (
+          <div className="res-rating">
+            <img className="res-star-img" src={STAR_URL} alt="star-img" />{" "}
+            <span>{avgRating}</span>{" "}
+          </div>
+        )}
+
+        <p className="res-cuisines">{cuisines.join(", ")}</p>
+        <div className="res-area">{areaName}</div>
+      </div>
+    </>
   );
 };
 

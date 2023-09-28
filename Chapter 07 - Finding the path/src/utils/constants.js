@@ -12,10 +12,8 @@ const PATH =
 
 const CLOSEBTN = "https://static.thenounproject.com/png/419880-200.png";
 
-const MENUIMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit";
+const MENU_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit";
 
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9430915&lng=88.43611480000001&restaurantId="
 
-// We can do this
-export { CDN_URL, STAR_URL, PATH, CLOSEBTN, MENUIMG };
-export default LOGO_URL;
+export { CDN_URL, STAR_URL, PATH, CLOSEBTN, MENU_IMG, LOGO_URL };
