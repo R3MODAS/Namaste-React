@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
-import Body from "./components/Body";
+import Body from "./pages/Body";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import RestaurantMenu from "./components/RestaurantMenu";

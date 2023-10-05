@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API, MENU_IMG } from "../utils/constants";
+import { MENU_API, MENU_IMG_CDN } from "../utils/constants";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -51,13 +51,12 @@ const RestaurantMenu = () => {
               <div className="item-right">
                 {item.card.info.imageId && (
                   <img
-                    src={`${MENU_IMG}/${item.card.info.imageId}`}
+                    src={`${MENU_IMG_CDN}/${item.card.info.imageId}`}
                     alt="menu-img"
                   />
                 )}
                 <button className="add-btn">Add</button>
               </div>
-              {console.log(item.card.info)}
             </li>
           ))}
         </ul>

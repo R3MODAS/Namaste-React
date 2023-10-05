@@ -1,10 +1,9 @@
-import React from "react";
-import { CDN_URL, STAR_URL } from "../utils/constants";
+import { CARD_IMG_CDN, STAR_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resInfo } = props;
   const { name, avgRating, cloudinaryImageId, cuisines, areaName } = resInfo;
-  const imgPath = `${CDN_URL}/${cloudinaryImageId}`;
+  const imgPath = `${CARD_IMG_CDN}/${cloudinaryImageId}`;
 
   return (
     <>
@@ -16,8 +15,8 @@ const RestaurantCard = (props) => {
           ""
         ) : (
           <div className="res-rating">
-            <img className="res-star-img" src={STAR_URL} alt="star-img" />{" "}
-            <span>{avgRating}</span>{" "}
+            <img className="res-star-img" src={STAR_URL} alt="star-img" />
+            <span>{avgRating}</span>
           </div>
         )}
 
