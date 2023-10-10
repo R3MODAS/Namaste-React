@@ -7,6 +7,8 @@ const STAR_URL =
 const CARD_IMG_CDN =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660";
 
+const IMG_CAROUSEL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360";
+
 const HAM_MENU =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png";
 
@@ -28,5 +30,6 @@ export {
   CLOSE_BTN,
   MENU_IMG_CDN,
   MENU_API,
-  CARD_API
+  CARD_API,
+  IMG_CAROUSEL
 };
