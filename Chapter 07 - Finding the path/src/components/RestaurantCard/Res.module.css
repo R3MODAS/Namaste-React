@@ -1,7 +1,8 @@
 .ResItem{
     width: 360px;
     height: 330px;
-    transition: 0.4s;
+    transition: transform 0.4s;
+    color: black;
 }
 
 .ResItem:hover{

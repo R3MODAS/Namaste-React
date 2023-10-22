@@ -3,6 +3,7 @@ import Styles from "./Menu.module.css";
 import { useEffect, useState } from "react";
 import { MENU_API, MENU_IMG_CDN } from "../../utils/constants";
 import { BiSolidUpArrow } from "react-icons/bi";
+import ShimmerMenu from "../ShimmerUi/ShimmerMenu";
 
 const RestaurantMenu = () => {
     const [ResInfo, setResInfo] = useState([]);
@@ -23,6 +24,10 @@ const RestaurantMenu = () => {
     const handleMenu = (e) => {
         const tar = e.target;
         console.log(tar)
+    }
+
+    if(ResInfo.length === 0){
+        return <ShimmerMenu />
     }
 
     return (
