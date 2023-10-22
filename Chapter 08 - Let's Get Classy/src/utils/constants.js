@@ -15,12 +15,11 @@ const HAM_MENU =
 const CLOSE_BTN = "https://static.thenounproject.com/png/419880-200.png";
 
 const MENU_IMG_CDN =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit";
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-const CARD_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9430915&lng=88.43611480000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+const RES_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9430915&lng=88.43611480000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-const MENU_API =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9430915&lng=88.43611480000001&restaurantId=";
+const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9430915&lng=88.43611480000001&restaurantId="
 
 export {
   LOGO_URL,
@@ -29,7 +28,7 @@ export {
   HAM_MENU,
   CLOSE_BTN,
   MENU_IMG_CDN,
-  MENU_API,
-  CARD_API,
-  IMG_CAROUSEL
+  IMG_CAROUSEL,
+  RES_API,
+  MENU_API
 };

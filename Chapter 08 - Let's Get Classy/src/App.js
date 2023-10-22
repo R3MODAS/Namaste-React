@@ -1,36 +1,46 @@
 import ReactDOM from "react-dom/client";
-import Navbar from "./components/Navbar";
-import Body from "./pages/Body";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
-import RestaurantMenu from "./components/RestaurantMenu";
-import Error from "./components/Error";
 import "./css/index.css";
 import "./css/responsive.css";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Header from "./components/Header/Header"
+import Body from "./components/Body/Body";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Error from "./components/Error/Error";
+import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <Outlet />
     </>
   );
 };
 
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   {
-    path : "/",
-    element : <Home />,
-    children : [
-      {path : "/", element : <Body />},
-      {path : "/about", element : <About />},
-      {path : "/contact", element : <Contact />},
-      {path : "/restaurants/:resId", element : <RestaurantMenu />},
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/",
+        element: <Body />
+      }, {
+        path: "/about",
+        element: <About />
+      }, {
+        path: "/contact",
+        element: <Contact />
+      },
+      {
+        path : "/restaurants/:resId",
+        element : <RestaurantMenu />
+      }
     ],
-    errorElement : <Error />
+    errorElement: <Error />
   }
 ])
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-root.render(<RouterProvider router={router} />);
+root.render(<RouterProvider router={Router} />);
