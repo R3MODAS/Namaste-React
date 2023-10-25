@@ -1,0 +1,8 @@
+.AboutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #29588d;
+    min-height: 100vh;
+}

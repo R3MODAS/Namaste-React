@@ -1,0 +1,18 @@
+.UserContainer{
+    text-align: center;
+    color: white;
+}
+.UserImg{
+    width: 200px;
+    margin: auto;
+    border-radius: 50%;
+}
+.UserName{
+    font-size: 2rem;
+}
+.UserLoc{
+    font-size: 1.5rem;
+}
+.UserLink a{
+    color: white;
+}

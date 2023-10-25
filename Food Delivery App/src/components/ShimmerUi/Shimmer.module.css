@@ -1,0 +1,14 @@
+.ShimmerButtons{
+    margin: 2rem auto 0 auto;
+}
+
+.ShimmerMenu{
+    margin: 3rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ShimmerMenuRight{
+    width: 110px;
+}
