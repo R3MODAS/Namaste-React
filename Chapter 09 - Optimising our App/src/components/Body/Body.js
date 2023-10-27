@@ -1,31 +1,14 @@
-import { useEffect, useState } from "react";
 import Styles from "./Body.module.css";
-import { RES_API } from "../../utils/constants";
 import RestaurantCard from "../RestaurantCard/RestaurantCard"
 import ShimmerUi from "../ShimmerUi/ShimmerUi";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import Online from "../NetworkStatus/Online";
+import useRestaurantList from "../../utils/useRestaurantList";
 
 const Body = () => {
-    const [RestaurantList, SetRestaurantList] = useState([]);
-    const [FilteredList, SetFilteredList] = useState([]);
+    const [RestaurantList, FilteredList] = useRestaurantList();
     const OnlineStatus = useOnlineStatus();
-
-    useEffect(() => {
-        FetchResData();
-    }, [])
-
-    const FetchResData = async () => {
-        const res = await fetch(RES_API);
-        const json = await res.json();
-        const ArrayofCards = json.data.cards;
-        const restaurant_list = "restaurant_grid_listing";
-
-        const cardObj = ArrayofCards.find((res) => res.card.card.id === restaurant_list);
-        SetRestaurantList(cardObj.card.card.gridElements.infoWithStyle.restaurants);
-        SetFilteredList(cardObj.card.card.gridElements.infoWithStyle.restaurants);
-    }
 
     const handleSearch = (e) => {
         const SearchText = e.target.value;
@@ -38,7 +21,7 @@ const Body = () => {
         SetFilteredList(FilterTopRated);
     }
 
-    if (RestaurantList.length === 0) {
+    if (RestaurantList?.length === 0) {
         return <ShimmerUi />
     }
 
@@ -54,7 +37,7 @@ const Body = () => {
             </div>
             <div className={`Container ${Styles.ResContainer}`}>
                 {
-                    FilteredList.map((res) => (
+                    FilteredList?.map((res) => (
                         <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
                             <RestaurantCard resInfo={res.info} />
                         </Link>

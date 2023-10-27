@@ -1,15 +1,14 @@
 import ReactDOM from "react-dom/client";
 import "./css/index.css";
-import "./css/responsive.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-const Header = lazy(() => import("./components/Header/Header"));
-const Body = lazy(() => import("./components/Body/Body"));
-const About = lazy(() => import("./pages/About/About"));
-const Contact = lazy(() => import("./pages/Contact/Contact"));
-const RestaurantMenu = lazy(() => import("./components/RestaurantMenu/RestaurantMenu"));
-const Error = lazy(() => import("./components/Error/Error"));
+const Header = lazy(() => import("./components/Header"));
+const Body = lazy(() => import("./pages/Body"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+const Error = lazy(() => import("./components/Error"));
 
 const Home = () => {
   return (

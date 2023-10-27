@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Grotesque Pro Thin";
+    font-weight: 300;
+    src: url("fonts/BasisGrotesquePro-Thin.ttf");
+}
+
+@font-face {
+    font-family: "Grotesque Pro Reg";
+    src: url("fonts/BasisGrotesquePro-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Med";
+    src: url("fonts/BasisGrotesquePro-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Bold";
+    src: url("fonts/BasisGrotesquePro-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Black";
+    src: url("fonts/BasisGrotesquePro-Black.ttf");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Thin";
+    src: url("fonts/ProximaNovaCond-Thin.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Med";
+    src: url("fonts/ProximaNovaCond-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed SemiBold";
+    src: url("fonts/ProximaNovaCond-SemiBold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Bold";
+    src: url("fonts/ProximaNovaCond-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Black";
+    src: url("fonts/ProximaNovaCond-Bold.ttf");
+    font-weight: 900;
+}
+
+.MenuPrice::before {
+    content: "\20B9";
+    margin-right: 0.1rem;
+}
+
+.divider{
+    border-bottom: 0.5px solid #d3d3d3;
+    height: 0.5px;
+    margin: 24px auto;
+}

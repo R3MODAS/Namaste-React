@@ -1,5 +1,4 @@
-import User from "../../components/User/User"
-import Styles from "./About.module.css"
+import User from "../components/User"
 import {Component} from "react"
 
 class About extends Component {
@@ -9,7 +8,7 @@ class About extends Component {
 
   render(){
     return (
-      <div className={`${Styles.AboutContainer}`}>
+      <div>
       <User name = "Child 1" />
     </div>
   )
