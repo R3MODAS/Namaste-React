@@ -1,4 +1,4 @@
-import RestaurantCard from "../components/RestaurantCard"
+import RestaurantCard, { OfferResCard } from "../components/RestaurantCard"
 import ShimmerUi from "../components/ShimmerUi";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -20,11 +20,14 @@ const Body = () => {
         SetFilteredList(FilterTopRated)
     }
 
-    if(RestaurantList?.length === 0){
+    // const RestaurantCardwithOffer = OfferResCard(RestaurantCard);
+    const RestaurantCardOffer = OfferResCard(RestaurantCard);
+
+    if (RestaurantList?.length === 0) {
         return <ShimmerUi />
     }
 
-    if(OnlineStatus === false){
+    if (OnlineStatus === false) {
         return <Online />
     }
 
@@ -37,8 +40,10 @@ const Body = () => {
             <div className="m-10 flex justify-center items-center flex-wrap gap-10 font-GrotReg">
                 {
                     FilteredList?.map((res) => (
-                        <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
-                            <RestaurantCard resInfo={res.info} />
+                        <Link className="relative group" key={res.info.id} to={"/restaurants/" + res.info.id}>
+                            {
+                                res.info.aggregatedDiscountInfoV3 ? <RestaurantCardOffer resInfo={res.info} /> : <RestaurantCard resInfo={res.info} />
+                            }
                         </Link>
                     ))
                 }
