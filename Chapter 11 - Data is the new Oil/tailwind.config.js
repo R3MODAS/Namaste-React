@@ -9,7 +9,9 @@ module.exports = {
         "customblack-1" : "rgba(2, 6, 12, 0.75)",
         "customblack-2" : "rgba(2, 6, 12, 0.6)",
         "customblack-3" : "#3e4152",
-        "customblack-4" : "rgba(40,44,63,.45)"
+        "customblack-4" : "rgba(40,44,63,.45)",
+        "customblack-5" : "#7e808c",
+        
       }
     },
     fontFamily : {

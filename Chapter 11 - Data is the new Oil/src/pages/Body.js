@@ -20,7 +20,6 @@ const Body = () => {
         SetFilteredList(FilterTopRated)
     }
 
-    // const RestaurantCardwithOffer = OfferResCard(RestaurantCard);
     const RestaurantCardOffer = OfferResCard(RestaurantCard);
 
     if (RestaurantList?.length === 0) {
