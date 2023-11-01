@@ -14,7 +14,6 @@ const useRestaurantList = () => {
         const json = await res.json();
         const ArrayofCards = json?.data?.cards;
         const restaurant_list = "restaurant_grid_listing";
-
         const cardObj = ArrayofCards.find((res) => res?.card?.card?.id === restaurant_list);
         SetRestaurantList(cardObj?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         SetFilteredList(cardObj?.card?.card?.gridElements?.infoWithStyle?.restaurants);

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { CARD_IMG_CDN, STAR_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resInfo } = props;
+
+  const {loggedInUser} = useContext(UserContext);
 
   const { name, cloudinaryImageId: imgId, locality, avgRating, cuisines, sla } = resInfo;
   const cardImg = `${CARD_IMG_CDN}/${imgId}`;
@@ -35,6 +39,7 @@ const RestaurantCard = (props) => {
       </h3>
       <p className="text-customblack-2 text-sm">{truncateCuisine(cuisines.join(", "))}</p>
       <div className="text-customblack-2 text-sm">{locality}</div>
+      {/* <div>{loggedInUser}</div> */}
     </div>
   )
 }

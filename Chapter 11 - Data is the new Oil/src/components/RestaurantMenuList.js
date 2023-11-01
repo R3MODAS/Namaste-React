@@ -2,7 +2,8 @@ import React from 'react'
 import { MENU_IMG_CDN } from '../utils/constants';
 
 const RestaurantMenuList = (props) => {
-    const { items } = props;
+    const { items, dummy } = props;
+    // console.log(dummy)
     return (
         <div className='item-container'>
             {items.map((item) => (

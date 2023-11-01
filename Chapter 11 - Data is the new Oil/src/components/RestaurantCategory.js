@@ -2,10 +2,10 @@ import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi"
 import RestaurantMenuList from './RestaurantMenuList';
 
 const RestaurantCategory = (props) => {
-    const { data, ShowItems, setShowItems } = props;
+    const { data, ShowItems, setShowIndex, handleShowItem, dummy } = props;
 
     const handleItems = () => {
-        setShowItems();
+        handleShowItem();
     }
 
     return (
@@ -22,7 +22,7 @@ const RestaurantCategory = (props) => {
 
                 {/* Accordion Body */}
                 {
-                    ShowItems && <RestaurantMenuList items={data?.itemCards} />
+                    ShowItems && <RestaurantMenuList items={data?.itemCards} dummy={dummy} />
                 }
 
         </li>

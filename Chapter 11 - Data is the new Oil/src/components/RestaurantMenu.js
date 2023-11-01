@@ -10,6 +10,17 @@ const RestaurantMenu = () => {
     const [ResMenuInfo, setResMenuInfo] = useState([]);
     const [ShowIndex, setShowIndex] = useState(null);
 
+    const handleShowItem = (index) => {
+        if(index === ShowIndex){
+            setShowIndex(null)
+        }
+        else{
+            setShowIndex(index)
+        }
+    }
+
+    const dummy = "Dummy Data";
+
     useEffect(() => {
         fetchResMenu();
     }, [])
@@ -50,7 +61,7 @@ const RestaurantMenu = () => {
             <ul className="w-6/12 mx-auto m-5">
                 {
                     ResMenuInfo.map((category, index) => (
-                        <RestaurantCategory key={category.card.card.title} data={category?.card?.card} ShowItems = {index === ShowIndex ? true : false} setShowItems = {() => setShowIndex(index)} />
+                        <RestaurantCategory key={category.card.card.title} data={category?.card?.card} ShowItems = {index === ShowIndex ? true : false} handleShowItem = {() => handleShowItem(index)} />
                     ))
                 }
             </ul>
