@@ -6,6 +6,11 @@ const Header = () => {
 
     // subscribing to the store using a selector
     const cartItems = useSelector((store) => store.cart.items);
+    // console.log(cartItems)
+
+    // const store = useSelector((store) => store);
+    // const cartItems = store.cart.items;
+    // console.log(store);
     
     return(
         <header className="bg-black p-3">

@@ -48,7 +48,7 @@ export const OfferResCard = (RestaurantCard) => {
     return(
       <>
         <RestaurantCard {...props} />
-        <div className="absolute bottom-[35%] left-[15px] text-white font-ProximaNovaBlack text-xl group-hover:scale-95 transition-transform">{header} {subHeader}</div>
+        <div className="absolute bottom-[32%] left-[15px] text-white font-ProximaNovaBlack text-xl group-hover:scale-95 transition-transform">{header} {subHeader}</div>
       </>
     )
   }

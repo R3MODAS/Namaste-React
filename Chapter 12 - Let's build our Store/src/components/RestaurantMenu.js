@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
     const [ResInfo, setResInfo] = useState({});
     const [ResMenuInfo, setResMenuInfo] = useState([]);
-    const [ShowIndex, setShowIndex] = useState(null);
+    const [ShowIndex, setShowIndex] = useState(0);
     const navigate = useNavigate();
 
     const handleShowItem = (index) => {
