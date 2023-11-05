@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "Grotesque Pro Thin";
+    font-weight: 300;
+    src: url("fonts/BasisGrotesquePro-Thin.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Reg";
+    src: url("fonts/BasisGrotesquePro-Regular.ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Med";
+    src: url("fonts/BasisGrotesquePro-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Bold";
+    src: url("fonts/BasisGrotesquePro-Bold.ttf");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Grotesque Pro Black";
+    src: url("fonts/BasisGrotesquePro-Black.ttf");
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Thin";
+    src: url("fonts/ProximaNovaCond-Thin.ttf");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Med";
+    src: url("fonts/ProximaNovaCond-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed SemiBold";
+    src: url("fonts/ProximaNovaCond-SemiBold.ttf");
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Bold";
+    src: url("fonts/ProximaNovaCond-Bold.ttf");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ProximaNova Condensed Black";
+    src: url("fonts/ProximaNovaCond-Bold.ttf");
+    font-weight: 900;
+    font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ResImg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(3deg, rgba(0, 0, 0, 0.4) 13%, rgba(255, 255, 255, 0) 95%);
+    border-radius: 8px;
+}
+
+.items {
+    border-bottom: 0.5px solid #d3d3d3;
+}
+
+.items:last-child {
+    border: none;
+}
+
+.animate {
+    animation: shimmer 3s;
+    animation-iteration-count: infinite;
+    background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: -1000px 0;
+    }
+
+    to {
+        background-position: 1000px 0;
+    }
+}
