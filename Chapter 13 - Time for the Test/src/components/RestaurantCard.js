@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
   }
 
   return (
-    <div className="group-hover:scale-95 transition-transform">
+    <div data-testid="resCard" className="group-hover:scale-95 transition-transform">
       <div className="w-[300px] h-[200px] relative ResImg rounded-lg">
         <img className="object-cover w-full h-full rounded-lg" src={cardImg} alt="res-img" />
       </div>

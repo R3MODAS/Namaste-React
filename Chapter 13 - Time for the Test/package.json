@@ -127,7 +127,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "watch-test" : "jest --watch"
   },
   "keywords": [],
   "author": "",

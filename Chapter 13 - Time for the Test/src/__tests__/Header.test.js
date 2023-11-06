@@ -1,11 +1,11 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import Header from "../components/Header"
 import { Provider } from "react-redux";
 import appStore from "../utils/appStore";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
-it("Should render Header Component with anchor tags", () => {
+it("Should render the Header with the anchor tags", () => {
     render(
         <BrowserRouter>
             <Provider store={appStore}>
@@ -14,13 +14,13 @@ it("Should render Header Component with anchor tags", () => {
         </BrowserRouter>
     );
 
-    const links = screen.getAllByRole("link");
-    waitFor(() => {
-        expect(links).toBeInTheDocument()
+    const anchors = screen.getAllByRole("link");
+    anchors.forEach((anchor) => {
+        expect(anchor).toBeInTheDocument();
     })
 })
 
-it("Should render Header component with Login Button", () => {
+it("Should render the Header with the login button", () => {
     render(
         <BrowserRouter>
             <Provider store={appStore}>
@@ -29,11 +29,11 @@ it("Should render Header component with Login Button", () => {
         </BrowserRouter>
     );
 
-    const login = screen.getByRole("button", {name : "Login"})
-    expect(login).toBeInTheDocument();
+    const loginBtn = screen.getByRole("button", { name: "Login" });
+    expect(loginBtn).toBeInTheDocument();
 })
 
-it("Should render Header component with Cart Items", () => {
+it("Should render the Header with the Cart Item", () => {
     render(
         <BrowserRouter>
             <Provider store={appStore}>
@@ -41,11 +41,12 @@ it("Should render Header component with Cart Items", () => {
             </Provider>
         </BrowserRouter>
     );
+
     const cartItems = screen.getByText(/Cart/);
     expect(cartItems).toBeInTheDocument();
 })
 
-it("Should change Login -> Logout on Click and render Header component", () => {
+it("Button on clicking should change the Login -> Logout", () => {
     render(
         <BrowserRouter>
             <Provider store={appStore}>
@@ -54,9 +55,8 @@ it("Should change Login -> Logout on Click and render Header component", () => {
         </BrowserRouter>
     );
 
-    const login = screen.getByRole("button", {name : "Login"})
-    fireEvent.click(login);
-    const logout = screen.getByRole("button", {name : "Logout"})
-    
-    expect(logout).toBeInTheDocument();
+    const loginBtn = screen.getByRole("button", { name: "Login" });
+    fireEvent.click(loginBtn);
+    const logoutBtn = screen.getByRole("button", { name: "Logout" });
+    expect(logoutBtn).toBeInTheDocument();
 })

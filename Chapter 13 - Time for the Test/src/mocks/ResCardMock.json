@@ -1,0 +1,72 @@
+{
+  "id": "784334",
+  "name": "Maa Restaurant",
+  "cloudinaryImageId": "d2b3bd562cdd433230fbd5cc305e3d65",
+  "locality": "Halisahar",
+  "areaName": "Halisahar",
+  "costForTwo": "₹250 for two",
+  "cuisines": ["Indian", "Seafood", "Chinese", "Thalis"],
+  "feeDetails": {
+    "restaurantId": "784334",
+    "fees": [
+      {
+        "name": "BASE_DISTANCE",
+        "fee": 1100
+      },
+      {
+        "name": "BASE_TIME"
+      },
+      {
+        "name": "ANCILLARY_SURGE_FEE"
+      }
+    ],
+    "totalFee": 1100
+  },
+  "parentId": "127864",
+  "avgRatingString": "NEW",
+  "sla": {
+    "deliveryTime": 50,
+    "lastMileTravel": 2.2,
+    "serviceability": "SERVICEABLE",
+    "slaString": "50 mins",
+    "lastMileTravelString": "2.2 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2023-11-06 22:00:00",
+    "opened": true
+  },
+  "badges": {},
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "₹150 OFF",
+    "subHeader": "ABOVE ₹349",
+    "discountTag": "FLAT DEAL"
+  },
+  "orderabilityCommunication": {
+    "title": {},
+    "subTitle": {},
+    "message": {},
+    "customIcon": {}
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "isNewlyOnboarded": true,
+  "restaurantOfferPresentationInfo": {}
+}

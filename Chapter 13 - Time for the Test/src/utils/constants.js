@@ -23,6 +23,8 @@ const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&com
 
 const PEOPLE_IMG = "https://img.freepik.com/free-vector/group-people-illustration-set_52683-33806.jpg"
 
+const SLIDER_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/";
+
 export {
   LOGO_URL,
   STAR_URL,
@@ -33,5 +35,6 @@ export {
   IMG_CAROUSEL,
   RES_API,
   MENU_API,
-  PEOPLE_IMG
+  PEOPLE_IMG,
+  SLIDER_IMG
 };

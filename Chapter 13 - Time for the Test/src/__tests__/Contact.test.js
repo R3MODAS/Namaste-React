@@ -1,29 +1,25 @@
-import  { render, screen, waitFor } from "@testing-library/react"
+import  { render, screen } from "@testing-library/react"
 import Contact from "../pages/Contact";
 import "@testing-library/jest-dom";
 
-describe("Contact page test cases", () => {
-    test('Should load heading inside Contact Component', () => {
-        render(<Contact />);
-        const heading = screen.getAllByRole("heading");
-        waitFor(() => {
-            expect(heading).toBeInTheDocument();
-        })
-    })
-    
-    test('Should load button inside Contact Component', () => {
-        render(<Contact />);
-        // const button = screen.getByRole("button");
-        const button = screen.getByText("Contact us Here");
-            expect(button).toBeInTheDocument();
-    })
-    
-    it('Should load 2 inputs inside Contact Component', () => {
-        render(<Contact />);
-        const inputs = screen.getAllByRole("textbox");
-        expect(inputs.length).toBe(2);
-    })
-    
+// test("",() => {}) two args => desc and callback function which contains the test case logic
+
+test("Should render the contact page and heading properly", () => {
+    render(<Contact />);
+    const heading = screen.getByRole("heading");
+    expect(heading).toBeInTheDocument();
 })
 
+test("Checking if the input is rendered properly or not", () => {
+    render(<Contact />);
+    const inputs = screen.getAllByRole("button");
+    inputs.forEach((input) => {
+        expect(input).toBeInTheDocument();
+    })
+})
 
+test("Checking if the image is rendered properly or not", () => {
+    render(<Contact />);
+    const img = screen.getByRole("img");
+    expect(img).toBeInTheDocument();
+})

@@ -10,9 +10,9 @@ import Cart from "./components/Cart";
 import ShimmerUi from "./components/ShimmerUi";
 import appStore from "./utils/appStore";
 import Contact from "./pages/Contact";
-const Body = lazy(() => import("./pages/Body"));
+const Home = lazy(() => import("./pages/Home"));
 
-const Home = () => {
+const App = () => {
   return (
     <Provider store={appStore}>
         <Header />
@@ -24,11 +24,11 @@ const Home = () => {
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
     children: [
       {
         path: "/",
-        element: <Suspense fallback = {<ShimmerUi />}><Body /></Suspense>
+        element: <Suspense fallback = {<ShimmerUi />}><Home /></Suspense>
       }, {
         path: "/about",
         element: <About />
