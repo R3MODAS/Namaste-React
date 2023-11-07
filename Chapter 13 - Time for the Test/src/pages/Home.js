@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Online from "../components/Online";
 import { useState, useEffect } from "react";
-import Slider from "../components/Slider";
 import { RES_API } from "../utils/constants";
 
 const Home = () => {
     const [RestaurantList, SetRestaurantList] = useState([]);
     const [FilteredList, SetFilteredList] = useState([]);
     const [SearchText, setSearchText] = useState("");
-    const [Title, setTitle] = useState("");
     const OnlineStatus = useOnlineStatus();
 
     useEffect(() => {
@@ -22,11 +20,6 @@ const Home = () => {
         try {
             const res = await fetch(RES_API);
             const json = await res.json();
-
-            // Title of the Restaurant Section
-            const titleObj = json?.data?.cards?.find((card) => card?.card?.card["@type"] === "type.googleapis.com/swiggy.seo.widgets.v1.BasicContent")
-            setTitle(titleObj.card.card.title);
-
             const ArrayofCards = json?.data?.cards;
             const restaurant_list = "restaurant_grid_listing";
             const cardObj = ArrayofCards.find((res) => res?.card?.card?.id === restaurant_list);
@@ -59,31 +52,10 @@ const Home = () => {
 
     return (
         <div className="container mx-auto">
-            {/* Image Slider */}
-            <Slider />
 
-            {/* Restaurant Section  */}
-            {
-                Title && <h2 className="font-GrotBlack text-3xl text-center">{Title}</h2>
-            }
-
-            {/* Filters */}
-            <div className="filter-section flex items-center justify-around mt-3 mb-10">
-                <div className="flex items-center justify-center gap-5">
-                    <button className="filter-btn shadow-md cursor-pointer font-GrotReg text-sm text-customblack-1 pt-2 pb-2 pl-3 pr-3 rounded-2xl">Fast Delivery</button>
-                    <button onClick={handleTopRated} className="filter-btn shadow-md cursor-pointer font-GrotReg text-sm text-customblack-1 pt-2 pb-2 pl-3 pr-3 rounded-2xl">Rating 4.0+</button>
-                    <button className="filter-btn shadow-md cursor-pointer font-GrotReg text-sm text-customblack-1 pt-2 pb-2 pl-3 pr-3 rounded-2xl">Offers</button>
-                    <button className="filter-btn shadow-md cursor-pointer font-GrotReg text-sm text-customblack-1 pt-2 pb-2 pl-3 pr-3 rounded-2xl">Rs. 300-Rs. 600</button>
-                    <button className="filter-btn shadow-md cursor-pointer font-GrotReg text-sm text-customblack-1 pt-2 pb-2 pl-3 pr-3 rounded-2xl">Less than Rs. 300</button>
-                </div>
-
-                <div className="flex justify-center gap-5">
-                    <input
-                        onChange={(e) => setSearchText(e.target.value)}
-                        value={SearchText}
-                        type="text" placeholder="Search" className="filter-btn pl-5 w-52 h-12 rounded-lg text-sm font-GrotReg" />
-                    <button onClick={handleSearch} className="bg-black rounded-lg text-white w-[120px] text-sm h-12 font-GrotReg">Search</button>
-                </div>
+            <div className="flex items-center justify-center gap-5 m-5 font-GrotReg">
+                <input className="w-64 h-14 px-6 text-customblack-1 rounded-lg border border-black" onKeyUp={handleSearch} type="text" placeholder="Search Here..." />
+                <button className="bg-black text-white w-64 h-14 rounded-lg" onClick={handleTopRated}>Top Rated Restaurants</button>
             </div>
 
             {/* Restaurant Card Section */}
