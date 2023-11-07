@@ -51,15 +51,18 @@ const RestaurantMenu = () => {
                                 <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{cuisines?.join(", ")}</p>
                                 <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{city}</p>
                             </div>
-                            <div>
-                                <button className="p-[8px] cursor-pointer rounded resRating">
-                                    <div className="flex items-center gap-1 justify-center avgRating pb-[10px] mb-[8px]">
-                                        <img src="/images/star-icon.png" alt="star-img" />
-                                        <span className="font-ProximaNovaSemiBold text-sm">{avgRating}</span>
-                                    </div>
-                                    <span className="font-ProximaNovaSemiBold tracking-tight text-xs totalRatings">{totalRatingsString}</span>
-                                </button>
-                            </div>
+                            {
+                                avgRating && <div>
+                                    <button className="p-[8px] cursor-pointer rounded resRating">
+                                        <div className="flex items-center gap-1 justify-center avgRating pb-[10px] mb-[8px]">
+                                            <img src="/images/star-icon.png" alt="star-img" />
+                                            <span className="font-ProximaNovaSemiBold text-sm">{avgRating}</span>
+                                        </div>
+                                        <span className="font-ProximaNovaSemiBold tracking-tight text-xs totalRatings">{totalRatingsString}</span>
+                                    </button>
+                                </div>
+                            }
+
                         </div>
                         <div className="dottedDivider"></div>
                         {/* Restaurant Category */}

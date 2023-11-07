@@ -27,15 +27,25 @@ const Home = () => {
 
     const BestOffers = ResInfo?.find((card) => card?.card?.card?.id === "topical_banner")?.card?.card?.imageGridCards?.info;
 
-    const handleOffer = () => { }
-    const handleFastDelivery = () => { }
+    const handleOffer = () => {
+        setCopiedRestaurants(Restaurants.filter((res) => res.info.aggregatedDiscountInfoV3))
+    }
+    const handleFastDelivery = () => {
+        setCopiedRestaurants(Restaurants.filter((res) => res?.info?.sla?.deliveryTime < 30))
+    }
     const handleTopRated = () => {
-        setCopiedRestaurants(Restaurants.filter((res) => res.info.avgRating > 4.0))
+        setCopiedRestaurants(Restaurants.filter((res) => res?.info?.avgRating > 4.0))
     }
 
     const handleSearch = () => {
         setShowIcon(true);
-        setCopiedRestaurants(Restaurants.filter((res) => res.info.name.toLowerCase().includes(SearchRes)))
+        setCopiedRestaurants(Restaurants.filter((res) => res?.info?.name?.toLowerCase()?.includes(SearchRes)))
+    }
+
+    const resetResCards = () => {
+        setSearchRes("");
+        setCopiedRestaurants(Restaurants);
+        setShowIcon(false);
     }
 
     if (CopiedRestaurants?.length <= 0) {
@@ -69,7 +79,7 @@ const Home = () => {
                 <div className="flex items-center gap-3">
                     <div className="relative flex items-center">
                         <input type="text" onChange={(e) => setSearchRes(e.target.value)} value={SearchRes} className="filterBtn searchInput" placeholder="Search" />
-                        {ShowIcon && <div className="absolute right-0"><AiOutlineClose /></div>}
+                        {ShowIcon && <div className="absolute right-3 cursor-pointer" onClick={resetResCards}><AiOutlineClose /></div>}
                     </div>
                     <button className="filterBtn" onClick={handleSearch}>Search</button>
                 </div>
