@@ -14,7 +14,6 @@ const Header = () => {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/cart">Cart(0)</Link></li>
-          <li><button className="rounded cursor-pointer">Login</button></li>
         </ul>
       </nav>
     </header>

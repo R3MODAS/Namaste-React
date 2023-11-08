@@ -1,4 +1,4 @@
-const RES_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9430915&lng=88.43611480000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+const RES_API = "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9747271&lng=88.43372099999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 const IMG_CAROUSEL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/";
 
@@ -9,7 +9,7 @@ const RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_
 
 const GRAY_RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,e_grayscale/";
 
-const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9430915&lng=88.43611480000001&restaurantId=";
+const MENU_API = "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9747271&lng=88.43372099999999&restaurantId=";
 
 const MENU_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 

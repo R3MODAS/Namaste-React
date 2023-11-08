@@ -1,14 +1,14 @@
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { MENU_API } from "../utils/constants";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
 import ShimmerMenu from "./ShimmerMenu";
+import useRestaurantMenu from "../Hooks/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
-    const [ResInfo, setResInfo] = useState({});
-    const [ResMenuInfo, setResMenuInfo] = useState([]);
+    const [ResInfo, setResInfo, ResMenuInfo, setResMenuInfo] = useRestaurantMenu(resId, MENU_API);
     const [ShowIndex, setShowIndex] = useState(0);
 
     const handleShowItem = (currInd) => {
@@ -19,51 +19,58 @@ const RestaurantMenu = () => {
         }
     }
 
-    useEffect(() => {
-        fetchRestaurantMenu();
-    }, [])
-
-    const fetchRestaurantMenu = async () => {
-        const data = await fetch(MENU_API + resId);
-        const json = await data.json();
-        setResInfo(json?.data?.cards[0]?.card?.card?.info);
-        const RestaurantType = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-        const categories = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item.card.card["@type"] === RestaurantType)
-        setResMenuInfo(categories);
-    }
-
     const { name, city, cuisines, avgRating, totalRatingsString, isOpen } = ResInfo;
 
-    if (ResMenuInfo?.length <= 0) {
+    if (ResMenuInfo?.length === 0) {
         return <ShimmerMenu />
     }
 
     return (
-        <>
+        <div className="w-6/12 mx-auto menu-container p-[20px]">
+            {/* BreadCrumb */}
 
-            {
-                isOpen ?
-                    <div className="w-6/12 mx-auto menu-container p-[20px]">
-                        {/* Restaurant Name */}
-                        <div className="flex items-start justify-between pt-5 mb-6">
-                            <div>
-                                <h2 className="text-customcolor-6 text-xl capitalize mb-1 font-ProximaNovaSemiBold">{name}</h2>
-                                <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{cuisines?.join(", ")}</p>
-                                <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{city}</p>
-                            </div>
-                            {
-                                avgRating && <div>
-                                    <button className="p-[8px] cursor-pointer rounded resRating">
-                                        <div className="flex items-center gap-1 justify-center avgRating pb-[10px] mb-[8px]">
-                                            <img src="/images/star-icon.png" alt="star-img" />
-                                            <span className="font-ProximaNovaSemiBold text-sm">{avgRating}</span>
-                                        </div>
-                                        <span className="font-ProximaNovaSemiBold tracking-tight text-xs totalRatings">{totalRatingsString}</span>
-                                    </button>
-                                </div>
-                            }
-
+            <div class="flex mb-5" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2">
+                    <li class="inline-flex items-center">
+                        <Link to="/" class="inline-flex items-center text-sm font-medium text-customblack-1">
+                            Home
+                        </Link>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg class="w-3 h-3 text-customblack-1 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <Link to={`/restaurants/${resId}`} class="ml-1 text-sm font-medium text-customblack-1 md:ml-2">Restaurants</Link>
                         </div>
+                    </li>
+                </ol>
+            </div>
+
+
+            {/* Restaurant Name */}
+            <div className="flex items-start justify-between pt-5 mb-6">
+                <div>
+                    <h2 className="text-customcolor-6 text-xl capitalize mb-1 font-ProximaNovaSemiBold">{name}</h2>
+                    <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{cuisines?.join(", ")}</p>
+                    <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{city}</p>
+                </div>
+                {
+                    avgRating && <div>
+                        <button className="p-[8px] cursor-pointer rounded resRating">
+                            <div className="flex items-center gap-1 justify-center avgRating pb-[10px] mb-[8px]">
+                                <img src="/images/star-icon.png" alt="star-img" />
+                                <span className="font-ProximaNovaSemiBold text-sm">{avgRating}</span>
+                            </div>
+                            <span className="font-ProximaNovaSemiBold tracking-tight text-xs totalRatings">{totalRatingsString}</span>
+                        </button>
+                    </div>
+                }
+
+            </div>
+            {
+                !isOpen ? <h2 className="resMsg font-ProximaNovaThin text-base">Uh-oh! The outlet is not accepting orders at the moment. We&apos;re working to get them back online</h2> :
+                    <>
                         <div className="dottedDivider"></div>
                         {/* Restaurant Category */}
                         <ul>
@@ -77,31 +84,10 @@ const RestaurantMenu = () => {
                                 ))
                             }
                         </ul>
-                    </div>
-                    :
-                    <div className="w-6/12 mx-auto menu-container p-[20px]">
-                        {/* Restaurant Name */}
-                        <div className="flex items-start justify-between pt-5 mb-6">
-                            <div>
-                                <h2 className="text-customcolor-6 text-xl capitalize mb-1 font-ProximaNovaSemiBold">{name}</h2>
-                                <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{cuisines?.join(", ")}</p>
-                                <p className="text-customcolor-5 text-sm font-ProximaNovaThin">{city}</p>
-                            </div>
-                            <div>
-                                <button className="p-[8px] cursor-pointer rounded resRating">
-                                    <div className="flex items-center gap-1 justify-center avgRating pb-[10px] mb-[8px]">
-                                        <img src="/images/star-icon.png" alt="star-img" />
-                                        <span className="font-ProximaNovaSemiBold text-sm">{avgRating}</span>
-                                    </div>
-                                    <span className="font-ProximaNovaSemiBold tracking-tight text-xs totalRatings">{totalRatingsString}</span>
-                                </button>
-                            </div>
-                        </div>
-                        <h2 className="resMsg font-ProximaNovaThin text-base">Uh-oh! The outlet is not accepting orders at the moment. We&apos;re working to get them back online</h2>
-                    </div>
+                    </>
             }
+        </div>
 
-        </>
     )
 }
 

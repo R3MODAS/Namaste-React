@@ -11,8 +11,8 @@ const RestaurantCategory = (props) => {
   return (
     <> 
         {/* Accordion Header */}
-        <div onClick={handleItemShown} className='flex items-center justify-between cursor-pointer pt-4 pb-3 pl-2 pr-2'>
-            <h2 className='text-customblack-3 text-xl font-ProximaNovaBold'>{data?.title} ({data?.itemCards?.length})</h2>
+        <div onClick={handleItemShown} className='flex items-center justify-between cursor-pointer p-6 shadow-md text-left'>
+            <h2 className='text-customblack-3 text-lg font-ProximaNovaBold'>{data?.title} ({data?.itemCards?.length})</h2>
             <div className='text-xl text-customblack-3'>
               {
                 ShowItems ? <IoIosArrowUp /> : <IoIosArrowDown />

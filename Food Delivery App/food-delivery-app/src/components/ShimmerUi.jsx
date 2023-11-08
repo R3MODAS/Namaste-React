@@ -15,13 +15,15 @@ const ShimmerUi = () => {
           <button className="w-[100px] bg-gray-400 h-[50px] rounded-3xl animate"></button>
           <button className="w-[100px] bg-gray-400 h-[50px] rounded-3xl animate"></button>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           <div className="w-[250px] bg-gray-400 h-[50px] rounded-3xl animate"></div>
-          <button className="w-[100px] bg-gray-400 h-[50px] rounded-3xl animate"></button>
         </div>
       </div>
 
       <div className="flex flex-wrap justify-center items-center gap-10 mt-10 container mx-auto">
+          <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
+          <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
+          <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
           <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
           <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
           <div className="w-[330px] h-[250px] rounded-xl bg-gray-400 animate"></div>
