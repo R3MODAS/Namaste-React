@@ -13,4 +13,6 @@ const MENU_API = "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page
 
 const MENU_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-export {RES_API, IMG_CAROUSEL, LOGO_URL, RES_IMG, GRAY_RES_IMG, MENU_API, MENU_IMG};
+const CATEGORY_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+
+export {RES_API, IMG_CAROUSEL, LOGO_URL, RES_IMG, GRAY_RES_IMG, MENU_API, MENU_IMG, CATEGORY_IMG};

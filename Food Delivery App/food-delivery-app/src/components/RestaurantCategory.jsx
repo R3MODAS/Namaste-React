@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import RestaurantMenuList from './RestaurantMenuList';
 import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"
 

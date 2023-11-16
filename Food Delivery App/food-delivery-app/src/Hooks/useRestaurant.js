@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 
 
 const useRestaurant = (RES_API) => {
-    const [BannerInfo, setBannerInfo] = useState([]);
     const [AllRestaurants, setAllRestaurants] = useState([]);
     const [FilteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [BannerInfo, setBannerInfo] = useState([]);
+    const [FoodCategories, setFoodCategories] = useState([]);
 
     useEffect(() => {
         fetchRestaurants();
@@ -21,13 +22,14 @@ const useRestaurant = (RES_API) => {
                 const CheckJsonStatus = async (jsonData) => {
                     const ResData = jsonData?.data?.cards?.find((card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined)?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                     const BannerData = jsonData?.data?.cards?.find((card) => card?.card?.card?.id === "topical_banner")?.card?.card?.gridElements?.infoWithStyle?.info;
-
-                    return [ResData, BannerData];
+                    const CategoryData = jsonData?.data?.cards?.find((card) => card.card.card.id === "whats_on_your_mind")?.card?.card?.imageGridCards?.info;
+                    return [ResData, BannerData, CategoryData];
                 }
-                const [ResData, BannerData] = await CheckJsonStatus(json);
+                const [ResData, BannerData, CategoryData] = await CheckJsonStatus(json);
                 setAllRestaurants(ResData);
                 setFilteredRestaurants(ResData);
                 setBannerInfo(BannerData);
+                setFoodCategories(CategoryData);
             }
 
         }
@@ -37,7 +39,7 @@ const useRestaurant = (RES_API) => {
 
     }
 
-    return [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo];
+    return [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories];
 }
 
 export default useRestaurant

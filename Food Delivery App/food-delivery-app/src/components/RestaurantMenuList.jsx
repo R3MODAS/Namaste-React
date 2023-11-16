@@ -1,6 +1,5 @@
 import { MENU_IMG } from "../utils/constants";
 
-/* eslint-disable react/prop-types */
 const RestaurantMenuList = (props) => {
     const { items } = props;
     return (

@@ -29,5 +29,7 @@ export default {
       "ProximaNovaBlack": ["ProximaNova Condensed Black"],
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }

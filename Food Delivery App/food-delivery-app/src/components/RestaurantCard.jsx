@@ -1,5 +1,4 @@
-/* eslint-disable react/display-name */
-/* eslint-disable react/prop-types */
+
 import { GRAY_RES_IMG, RES_IMG } from '../utils/constants'
 
 const RestaurantCard = (props) => {
