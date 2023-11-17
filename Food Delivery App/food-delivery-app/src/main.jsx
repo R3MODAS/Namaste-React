@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import "./css/index.css"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-// import Home from "./pages/Home.jsx"
-import RestaurantMenu from './components/RestaurantMenu.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Cart from './pages/Cart.jsx'
 import Error from './components/Error.jsx'
-import ShimmerUi from './components/ShimmerUi.jsx'
 
 const Home = lazy(() => import("./pages/Home.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const Cart = lazy(() => import("./pages/Cart.jsx"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu.jsx"));
 
 const appRouter = createBrowserRouter([
   {
@@ -24,19 +22,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path : "/restaurants/:resId",
-        element : <RestaurantMenu />
+        element : <Suspense fallback={<h1>Loading...</h1>}><RestaurantMenu /></Suspense>
       },
       {
         path : "/about",
-        element : <About />
+        element : <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>
       },
       {
         path : "/contact",
-        element : <Contact />
+        element : <Suspense fallback={<h1>Loading...</h1>}><Contact /></Suspense>
       },
       {
         path : "/cart",
-        element : <Cart />
+        element : <Suspense fallback={<h1>Loading...</h1>}><Cart /></Suspense>
       }
     ],
     errorElement : <Error />

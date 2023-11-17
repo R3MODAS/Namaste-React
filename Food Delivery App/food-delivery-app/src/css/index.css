@@ -72,9 +72,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .res-container {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     align-items: center;
+}
+
+.resoffer{
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
 }
 
 .rupee {

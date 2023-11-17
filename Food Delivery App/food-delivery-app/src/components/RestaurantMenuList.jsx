@@ -14,7 +14,7 @@ const RestaurantMenuList = (props) => {
                                         <img src="/images/nonveg.png" alt="icon" />
                                 }
                                 <h3 className="text-base font-ProximaNovaMed">{item?.card?.info?.name}</h3>
-                                <span className="rupee font-ProximaNovaThin text-sm text-customblack-3">{item?.card?.info?.price / 100}</span>
+                                <span className="rupee font-ProximaNovaThin text-sm text-customblack-3">{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}</span>
                                 {
                                     item?.card?.info?.description && <p className="mt-2 tracking-tight text-customcolor-4 text-sm">{item?.card?.info?.description}</p>
                                 }

@@ -10,17 +10,23 @@ const RestaurantCard = (props) => {
     }
 
     return (
-        <div className='transition-transform hover:scale-95 tracking-tight w-[330px] h-[320px]'>
+        <div className='tracking-tight w-[330px] h-[320px] group-hover:scale-95 transition-transform'>
             {
-                isOpen ? <img src={RES_IMG + cloudinaryImageId} className="w-[330px] h-[220px] object-cover rounded-2xl" alt="res-img" /> :
-                    <img src={GRAY_RES_IMG + cloudinaryImageId} className="w-[330px] h-[220px] object-cover rounded-2xl" alt="res-img" />
+                isOpen ?
+                    <div>
+                        <img src={RES_IMG + cloudinaryImageId} className="w-[330px] h-[220px] object-cover rounded-2xl relative " alt="res-img" />
+                    </div>
+                    :
+                    <div>
+                        <img src={GRAY_RES_IMG + cloudinaryImageId} className="w-[330px] h-[220px] object-cover rounded-2xl relative" alt="res-img" />
+                    </div>
             }
             <h3 className='font-GrotBold text-customblack-1 text-lg'>{name}</h3>
 
             {
                 avgRating ? <div className="flex items-center gap-1">
                     <div>
-                        <img src="images/star-icon.png" alt="star-icon" />
+                        <img src="/images/star-icon.png" alt="star-icon" />
                     </div>
 
                     <div>
@@ -34,6 +40,19 @@ const RestaurantCard = (props) => {
             <span className='font-GrotThin text-base text-customblack-2'>{areaName}</span>
         </div>
     )
+}
+
+export const RestaurantCardOffer = (RestaurantCard) => {
+    return (props) => {
+        const { resInfo } = props;
+        const { header, subHeader } = resInfo?.aggregatedDiscountInfoV3
+        return (
+            <>
+                <RestaurantCard {...props} />
+                <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{header} {subHeader}</div>
+            </>
+        )
+    }
 }
 
 export default RestaurantCard

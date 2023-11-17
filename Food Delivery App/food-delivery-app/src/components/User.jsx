@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { FaGithub } from "react-icons/fa";
-import ShimmerAbout from './ShimmerAbout';
 
 class User extends Component {
     constructor(props) {
@@ -30,12 +29,8 @@ class User extends Component {
 
         const { name, avatar_url: userImg, html_url: link, location } = UserInfo;
 
-        if(UserInfo.length === 0){
-            return <ShimmerAbout />
-        }
-
         return (
-            <div className='bg-[url("images/aboutbg.jpg")] bg-cover w-full pt-24'>
+            <div className='bg-[url("/images/aboutbg.jpg")] bg-cover w-full pt-24'>
                 <div className='container mx-auto text-center text-white flex flex-col justify-center items-center min-h-screen custom-shadow'>
                     <h2 className="font-GrotBlack text-4xl pt-5 pb-5">Purpose of Spicy Pricey 😉</h2>
                     <p className='font-GrotMed w-[800px] text-xl mx-auto'>Spicy Pricey is a place where you can get all sorts of Restaurants where you can order anything, anytime you desire 🔥. This works on Swiggy's Live Data so you will get all the features of the Food Ordering App 😁</p>

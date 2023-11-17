@@ -1,12 +1,11 @@
-
 import RestaurantMenuList from './RestaurantMenuList';
 import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"
 
 const RestaurantCategory = (props) => {
-    const {data , handleShowItem, ShowItems} = props;
+    const {data, handleShowItem, ShowItem} = props;
 
     const handleItemShown = () => {
-        handleShowItem();
+      handleShowItem();
     }
   return (
     <> 
@@ -15,7 +14,7 @@ const RestaurantCategory = (props) => {
             <h2 className='text-customblack-3 text-lg font-ProximaNovaBold'>{data?.title} ({data?.itemCards?.length})</h2>
             <div className='text-xl text-customblack-3'>
               {
-                ShowItems ? <IoIosArrowUp /> : <IoIosArrowDown />
+                ShowItem ? <IoIosArrowUp /> : <IoIosArrowDown />
               }
                 
             </div>
@@ -23,7 +22,7 @@ const RestaurantCategory = (props) => {
 
         {/* Accordion Body */}
         {
-         ShowItems && <RestaurantMenuList items = {data?.itemCards}  />
+         ShowItem && <RestaurantMenuList items = {data?.itemCards}  />
         }
         
     </>

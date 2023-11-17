@@ -1,10 +1,9 @@
-
 import { useState } from "react"
 import { MENU_API } from "../utils/constants";
 import { Link, useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
 import ShimmerMenu from "./ShimmerMenu";
-import useRestaurantMenu from "../Hooks/useRestaurantMenu";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -12,14 +11,16 @@ const RestaurantMenu = () => {
     const [ShowIndex, setShowIndex] = useState(0);
 
     const handleShowItem = (currInd) => {
-        if (currInd === ShowIndex) {
-            setShowIndex(null);
-        } else {
+        if(currInd === ShowIndex){
+            setShowIndex(null)
+        }else{
             setShowIndex(currInd);
         }
     }
 
     const { name, city, cuisines, avgRating, totalRatingsString, isOpen } = ResInfo;
+
+
 
     if (ResMenuInfo?.length === 0) {
         return <ShimmerMenu />
@@ -76,10 +77,10 @@ const RestaurantMenu = () => {
                         <ul>
                             {
                                 ResMenuInfo?.map((category, index) => (
-                                    <li key={category.card.card.title}>
-                                        <RestaurantCategory data={category.card.card} ShowItems={
-                                            index === ShowIndex ? true : false
-                                        } handleShowItem={() => handleShowItem(index)} />
+                                    <li key={category?.card?.card?.title}>
+                                        <RestaurantCategory data={category?.card?.card} ShowItem = {index === ShowIndex ? true : false}
+                                        handleShowItem = {() => handleShowItem(index)}
+                                        />
                                     </li>
                                 ))
                             }
