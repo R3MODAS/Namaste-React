@@ -3,7 +3,7 @@
 const ShimmerMenu = () => {
     return (
         <div>
-            <div className="w-6/12 mx-auto menu-container p-[20px]">
+            <div className="w-6/12 mx-auto menu-container pt-28">
                 <div className="flex items-start justify-between pt-5 mb-6">
                     <div>
                         <div className="mb-1 bg-gray-400 animate w-[100px] h-[15px]"></div>

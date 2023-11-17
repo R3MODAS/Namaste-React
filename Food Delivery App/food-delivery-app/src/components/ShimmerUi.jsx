@@ -1,6 +1,6 @@
 const ShimmerUi = () => {
   return (
-    <div>
+    <div className="pt-[88px]">
       <div className="carousel-loading h-80 flex justify-center flex-col gap-7">
         <div className="flex items-center justify-center relative">
           <div className="spinner"></div>

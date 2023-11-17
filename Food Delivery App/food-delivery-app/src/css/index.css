@@ -235,3 +235,7 @@
     cursor: pointer;
     opacity: 0.5;
 }
+
+.custom-shadow{
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+}

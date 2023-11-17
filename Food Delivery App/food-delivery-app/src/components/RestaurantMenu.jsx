@@ -26,22 +26,22 @@ const RestaurantMenu = () => {
     }
 
     return (
-        <div className="w-6/12 mx-auto menu-container p-[20px]">
+        <div className="w-6/12 mx-auto menu-container pt-28 pb-5">
             {/* BreadCrumb */}
 
-            <div class="flex mb-5" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-2">
-                    <li class="inline-flex items-center">
-                        <Link to="/" class="inline-flex items-center text-sm font-medium text-customblack-1">
+            <div className="flex mb-5" aria-label="Breadcrumb">
+                <ol className="inline-flex items-center space-x-1 md:space-x-2">
+                    <li className="inline-flex items-center">
+                        <Link to="/" className="inline-flex items-center text-sm font-medium text-customblack-1">
                             Home
                         </Link>
                     </li>
                     <li aria-current="page">
-                        <div class="flex items-center">
-                            <svg class="w-3 h-3 text-customblack-1 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        <div className="flex items-center">
+                            <svg className="w-3 h-3 text-customblack-1 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <Link to={`/restaurants/${resId}`} class="ml-1 text-sm font-medium text-customblack-1 md:ml-2">Restaurants</Link>
+                            <Link to={`/restaurants/${resId}`} className="ml-1 text-sm font-medium text-customblack-1 md:ml-2">Restaurants</Link>
                         </div>
                     </li>
                 </ol>
