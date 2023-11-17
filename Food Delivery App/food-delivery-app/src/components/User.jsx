@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { FaGithub } from "react-icons/fa";
+import ShimmerAbout from './ShimmerAbout';
 
 class User extends Component {
     constructor(props) {
@@ -25,8 +26,13 @@ class User extends Component {
     }
 
     render() {
+        const {UserInfo} = this.state;
 
-        const { name, avatar_url: userImg, html_url: link, location } = this.state.UserInfo;
+        const { name, avatar_url: userImg, html_url: link, location } = UserInfo;
+
+        if(UserInfo.length === 0){
+            return <ShimmerAbout />
+        }
 
         return (
             <div className='bg-[url("images/aboutbg.jpg")] bg-cover w-full pt-24'>

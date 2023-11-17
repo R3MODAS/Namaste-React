@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import "./css/index.css"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from "./pages/Home.jsx"
+// import Home from "./pages/Home.jsx"
 import RestaurantMenu from './components/RestaurantMenu.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Cart from './pages/Cart.jsx'
 import Error from './components/Error.jsx'
+import ShimmerUi from './components/ShimmerUi.jsx'
+
+const Home = lazy(() => import("./pages/Home.jsx"));
 
 const appRouter = createBrowserRouter([
   {
@@ -17,7 +20,7 @@ const appRouter = createBrowserRouter([
     children : [
       {
         path : "/",
-        element : <Home />
+        element : <Suspense fallback={<h1>Loading...</h1>}><Home /></Suspense>
       },
       {
         path : "/restaurants/:resId",
