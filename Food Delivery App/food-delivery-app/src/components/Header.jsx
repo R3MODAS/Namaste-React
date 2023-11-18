@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom"
 import { LOGO_URL } from "../utils/constants"
-import { useContext } from "react"
-import { UserContext } from "../context/UserContext"
 
 const Header = () => {
-  const {loggedInUser} = useContext(UserContext);
 
   return (
-    <header className="p-3 shadow-lg fixed w-full z-10 bg-white">
+    <header className="p-3 shadow-lg fixed w-full z-10 bg-white h-[85px]">
       <nav className="container mx-auto flex items-center justify-between">
         <Link to="/">
           <img src={LOGO_URL} alt="logo" className="h-16 rounded-full" />
@@ -18,7 +15,6 @@ const Header = () => {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/cart">Cart(0)</Link></li>
-          <li>{loggedInUser}</li>
         </ul>
       </nav>
     </header>

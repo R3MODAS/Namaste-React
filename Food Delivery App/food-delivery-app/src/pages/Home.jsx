@@ -6,7 +6,6 @@ import useRestaurant from "../Hooks/useRestaurant";
 import { CATEGORY_IMG, IMG_CAROUSEL, RES_API } from "../utils/constants";
 
 const Home = () => {
-
     const [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories] = useRestaurant(RES_API);
     const [SearchText, setSearchText] = useState("");
     const [ErrorMessage, setErrorMessage] = useState("");
@@ -166,7 +165,7 @@ const Home = () => {
                                 ))
                             }
                         </div>
-                    </> 
+                    </>
                     :
                     <div className="text-center flex justify-center items-center mx-auto flex-col max-w-sm">
                         <div className="mt-16 ml-auto mr-auto mb-16">
@@ -177,11 +176,8 @@ const Home = () => {
                     </div>
             }
 
-
-
         </div>
     )
-
 }
 
 export default Home
