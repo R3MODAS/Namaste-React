@@ -1,7 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import { MENU_IMG } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantMenuList = (props) => {
     const { items } = props;
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        console.log(item);
+        dispatch(addItem(item))
+    }
+
     return (
         <>
             {
@@ -24,7 +33,8 @@ const RestaurantMenuList = (props) => {
                                 {
                                     item?.card?.info?.imageId && <img src={MENU_IMG + item?.card?.info?.imageId} alt="menu-img" className="object-cover w-[150px] h-[96px] rounded-lg" />
                                 }
-                                <button className="addBtn font-ProximaNovaBold uppercase text-sm bg-white cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2">Add</button>
+                                <button className="addBtn font-ProximaNovaBold uppercase text-sm bg-white cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2" 
+                                onClick={() => handleAddItem(item)}>Add</button>
                             </div>
                         </div>
                     </div>
