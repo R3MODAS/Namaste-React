@@ -2,7 +2,7 @@ import { useState } from "react"
 import RestaurantCard, { RestaurantCardOffer } from "../components/RestaurantCard";
 import { Link } from "react-router-dom";
 import ShimmerUi from "../components/ShimmerUi";
-import useRestaurant from "../Hooks/useRestaurant";
+import useRestaurant from "../hooks/useRestaurant";
 import { CATEGORY_IMG, IMG_CAROUSEL, RES_API } from "../utils/constants";
 
 
@@ -80,7 +80,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container mx-auto pt-24 pb-5">
+        <div className="container mx-auto pt-24 pb-28">
 
             {
                 FilteredRestaurants && AllRestaurants ?
@@ -161,7 +161,8 @@ const Home = () => {
                                 FilteredRestaurants?.map((res) => (
                                     <Link key={res?.info?.id} to={`/restaurants/${res?.info?.id}`} className="relative group">
                                         {
-                                            res?.info?.aggregatedDiscountInfoV3 ? <RestaurantCardwithOffer resInfo={res?.info} /> : <RestaurantCard resInfo={res?.info} />
+                                            
+                                            res?.info?.aggregatedDiscountInfoV3 || res?.info?.aggregatedDiscountInfoV2 ? <RestaurantCardwithOffer resInfo={res?.info} /> : <RestaurantCard resInfo={res?.info} />
                                         }
                                     </Link>
                                 ))

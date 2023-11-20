@@ -5,7 +5,7 @@ class About extends React.Component{
     render(){
         return(
             <>
-                <User creator = "Sharadindu Das" />
+                <User />
             </>
         )
     }
