@@ -8,8 +8,10 @@ function App() {
 
   return (
     <Provider store={appStore}>
+      <div className="overflow-x-hidden">
       <Header />
       <Outlet />
+      </div>
     </Provider>
   )
 }

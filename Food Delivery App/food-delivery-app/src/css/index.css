@@ -122,11 +122,7 @@
 }
 
 .addBtn {
-    width: 96px;
-    height: 36px;
-    color: #60b246;
     box-shadow: 0 3px 8px #e9e9eb;
-    border-radius: 4px;
 }
 
 .resMsg {
@@ -164,7 +160,6 @@
     line-height: 18px;
     letter-spacing: -0.3px;
     color: rgba(2, 6, 12, 0.75);
-    font-size: 15px;
 }
 
 .searchInput {

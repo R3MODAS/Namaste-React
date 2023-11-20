@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
     }
 
     return (
-        <div className="w-6/12 mx-auto menu-container pt-28 pb-5">
+        <div className="2xl:w-6/12 mx-auto menu-container pt-28 pb-5 md:w-10/12 w-full px-3">
             {/* BreadCrumb */}
 
             <div className="flex mb-5" aria-label="Breadcrumb">

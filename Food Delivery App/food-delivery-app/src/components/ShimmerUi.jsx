@@ -9,7 +9,7 @@ const ShimmerUi = () => {
         <h2 className="text-2xl font-ProximaNovaThin">Looking for great food near you ...</h2>
       </div>
 
-      <div className="flex items-center justify-between mb-5 pl-10 pr-10 pt-10 container mx-auto">
+      <div className="flex items-center justify-center md:flex-row flex-col md:justify-between mb-5 pl-10 pr-10 pt-10 container mx-auto gap-6">
         <div className="flex items-center gap-3">
           <button className="w-[100px] bg-gray-400 h-[50px] rounded-3xl animate"></button>
           <button className="w-[100px] bg-gray-400 h-[50px] rounded-3xl animate"></button>

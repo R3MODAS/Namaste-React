@@ -86,36 +86,11 @@ const Home = () => {
                 FilteredRestaurants && AllRestaurants ?
 
                     <>
-                        <aside id="default-sidebar" className="fixed top-0 -left-full z-40 w-64 h-screen transition-all">
-                            <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-                                <ul className="space-y-2 font-medium">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                                        >
-                                            <svg
-                                                className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                                aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="currentColor"
-                                                viewBox="0 0 22 21"
-                                            >
-                                                <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                                <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                            </svg>
-                                            <span className="ms-3">Dashboard</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
-
                         {
                             BannerInfo &&
                             (
                                 <>
-                                    <h2 className="font-GrotBlack text-2xl pt-5 pb-5">Best offers for you</h2>
+                                    <h2 className="font-GrotBlack text-xl sm:text-2xl pt-5 pb-5">Best offers for you</h2>
 
                                     <div className="flex items-center gap-5">
                                         {
@@ -135,9 +110,9 @@ const Home = () => {
                             FoodCategories &&
                             (
                                 <div className="relative">
-                                    <h2 className="font-GrotBlack text-2xl pt-5 pb-5">What's on your mind?</h2>
+                                    <h2 className="font-GrotBlack text-xl sm:text-2xl pt-5 pb-5 text-left pl-4">What's on your mind?</h2>
 
-                                    <div className="scroll-buttons absolute top-0 right-0 flex gap-2">
+                                    <div className="scroll-buttons absolute top-5 2xl:right-16 flex gap-2 right-4">
                                         <button onClick={handleScrollLeft} className="scroll-left text-white flex justify-center cursor-pointer">
                                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true" strokecolor="rgba(2, 6, 12, 0.92)" fillcolor="rgba(2, 6, 12, 0.92)"><path d="M7.46869 3.43394C7.79171 3.13249 8.29794 3.14998 8.59939 3.473C8.90083 3.79602 8.88334 4.30225 8.56033 4.60369L5.0839 7.84795C4.94511 7.97748 4.82252 8.0921 4.71414 8.19502L15.0937 8.19502C15.5355 8.19502 15.8937 8.5532 15.8937 8.99502C15.8937 9.43685 15.5355 9.79502 15.0937 9.79502L4.6665 9.79502C4.78625 9.90939 4.92436 10.0386 5.08389 10.1875L8.51791 13.3922C8.84092 13.6937 8.8584 14.1999 8.55695 14.5229C8.2555 14.8459 7.74927 14.8634 7.42626 14.5619L3.95463 11.3221C3.54648 10.9413 3.18179 10.601 2.92647 10.2871C2.64873 9.94573 2.41671 9.53755 2.41672 9.01769C2.41672 8.49783 2.64874 8.08965 2.92648 7.74824C3.18181 7.43439 3.54649 7.09412 3.95465 6.7133L7.46869 3.43394Z" fill="rgba(2, 6, 12, 0.92)" fillOpacity="0.92"></path></svg>
                                         </button>
@@ -146,12 +121,12 @@ const Home = () => {
                                         </button>
                                     </div>
 
-                                    <div className="foodCategory overflow-x-scroll overflow-y-hidden scroll-smooth scrollbar-hide max-w-[1500px]">
-                                        <div className="flex gap-6">
+                                    <div className="foodCategory overflow-x-scroll overflow-y-hidden scroll-smooth scrollbar-hide 2xl:max-w-[1500px]">
+                                        <div className="flex md:gap-6 px-3 md:px-0">
                                             {
                                                 FoodCategories?.map((category) => (
                                                     <div key={category?.id} className="cursor-pointer">
-                                                        <div className="w-[144px]">
+                                                        <div className="md:w-[144px] w-[120px]">
                                                             <img src={CATEGORY_IMG + category?.imageId} alt="img" className="w-full h-full object-contain" />
                                                         </div>
                                                     </div>
@@ -164,24 +139,24 @@ const Home = () => {
 
                         }
 
-                        <h2 className="font-GrotBlack text-2xl pt-10 pb-5">Restaurants with online food delivery in Kanchrapara</h2>
+                        <h2 className="font-GrotBlack text-xl sm:text-2xl pt-10 pb-5 text-center 2xl:text-left">Restaurants with online food delivery in Kanchrapara</h2>
 
-                        <div className="buttons flex items-center justify-between pr-24 mb-5 font-GrotReg">
-                            <div className="flex items-center gap-3">
-                                <button className="filterBtn" onClick={handleTopRated}>Ratings 4.0+</button>
-                                <button className="filterBtn" onClick={handleFastDelivery}>Fast Delivery</button>
-                                <button className="filterBtn" onClick={handleOffer}>Offers</button>
-                                <button className="filterBtn" onClick={handleRange300to600}>Rs. 300-Rs. 600</button>
-                                <button className="filterBtn" onClick={handleRangelessThan300}>Less than Rs. 300</button>
+                        <div className="buttons flex items-center justify-center 2xl:justify-between 2xl:pr-24 mb-5 font-GrotReg xl:flex-row flex-col gap-5 xl:gap-0">
+                            <div className="flex items-center gap-3 md:flex-nowrap flex-wrap md:justify-start justify-center">
+                                <button className="filterBtn text-sm md:text-[15px]" onClick={handleTopRated}>Ratings 4.0+</button>
+                                <button className="filterBtn text-sm md:text-[15px]" onClick={handleFastDelivery}>Fast Delivery</button>
+                                <button className="filterBtn text-sm md:text-[15px]" onClick={handleOffer}>Offers</button>
+                                <button className="filterBtn text-sm md:text-[15px]" onClick={handleRange300to600}>Rs. 300-Rs. 600</button>
+                                <button className="filterBtn text-sm md:text-[15px]" onClick={handleRangelessThan300}>Less than Rs. 300</button>
                             </div>
-                            <div className="flex items-center">
-                                <input type="text" onChange={(e) => setSearchText(e.target.value)} value={SearchText} onKeyUp={handleSearch} className="filterBtn searchInput" placeholder="Search" />
+                            <div className="flex items-center pl-0 2xl:pl-0 xl:pl-32">
+                                <input type="text" onChange={(e) => setSearchText(e.target.value)} value={SearchText} onKeyUp={handleSearch} className="filterBtn text-sm md:text-[15px] searchInput" placeholder="Search" />
                             </div>
                         </div>
 
                         {ErrorMessage && <div className="text-center mb-3 mt-5 font-ProximaNovaBlack text-2xl">{ErrorMessage}</div>}
 
-                        <div className="flex flex-wrap items-center gap-10">
+                        <div className="flex flex-wrap items-center gap-10 justify-center 2xl:justify-start">
                             {
                                 FilteredRestaurants?.map((res) => (
                                     <Link key={res?.info?.id} to={`/restaurants/${res?.info?.id}`} className="relative group">
