@@ -1,4 +1,4 @@
-export let CORSPROXY = "https://corsproxy.io/?";
+let CORSPROXY = "https://corsproxy.io/?";
 
 export const RES_API = `${CORSPROXY}https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9747271&lng=88.43372099999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
 

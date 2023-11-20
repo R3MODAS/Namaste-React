@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name : "cart",
@@ -11,10 +11,14 @@ const cartSlice = createSlice({
         },
         clearCart : (state) => {
             state.items.length = 0;
+        },
+        deleteItem : (state,action) => {
+            const itemId = action.payload;
+            state.items = state?.items?.filter((card) => card?.card?.info?.id !== itemId)
         }
 
     }
 })
 
 export default cartSlice.reducer;
-export const {addItem, clearCart} = cartSlice.actions;
+export const {addItem, clearCart, deleteItem} = cartSlice.actions;

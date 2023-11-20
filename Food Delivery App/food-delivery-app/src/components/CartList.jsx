@@ -1,9 +1,22 @@
 import React from 'react'
 import { MENU_IMG } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../utils/cartSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CartList = (props) => {
     const { items } = props;
+    const dispatch = useDispatch();
+
+    const handleDeleteItem = (item) => {
+        dispatch(deleteItem(item?.card?.info?.id));
+        toast.success('Removed from the Cart', {
+            className : "font-ProximaNovaSemiBold",
+            position : "top-center",
+            duration : 1500
+        });
+    }
 
     return (
         <>
@@ -26,10 +39,12 @@ const CartList = (props) => {
                                             }
 
                                         </div>
-                                        <div className="categoryRight w-[150px] h-[96px]">
+                                        <div className="categoryRight w-[150px] h-[96px] relative">
                                             {
                                                 item?.card?.info?.imageId && <img src={MENU_IMG + item?.card?.info?.imageId} alt="menu-img" className="object-cover w-[150px] h-[96px] rounded-lg" />
                                             }
+                                            <button className="addBtn font-ProximaNovaBold uppercase text-sm bg-white cursor-pointer absolute bottom-0 left-1/2 -translate-x-1/2" 
+                                onClick={() => handleDeleteItem(item)}>Remove</button>
                                         </div>
                                     </div>
                                 </div>
@@ -43,9 +58,11 @@ const CartList = (props) => {
                         <p className='mt-2 text-[#7e808c] font-ProximaNovaThin text-sm'>You can go to home page to view more restaurants</p>
                         <Link to="/" className='uppercase bg-orange-500 text-white font-ProximaNovaSemiBold mt-4 px-5 py-[11px] cursor-pointer text-[15px]'>see restaurants near you</Link>
                     </div>
-
+                
 
             }
+
+            <Toaster />
         </>
     )
 }

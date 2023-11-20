@@ -7,7 +7,6 @@ import Error from './components/Error.jsx'
 
 const Home = lazy(() => import("./pages/Home.jsx"));
 const About = lazy(() => import("./pages/About.jsx"));
-const Contact = lazy(() => import("./pages/Contact.jsx"));
 const Cart = lazy(() => import("./pages/Cart.jsx"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu.jsx"));
 
@@ -27,10 +26,6 @@ const appRouter = createBrowserRouter([
       {
         path : "/about",
         element : <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>
-      },
-      {
-        path : "/contact",
-        element : <Suspense fallback={<h1>Loading...</h1>}><Contact /></Suspense>
       },
       {
         path : "/cart",

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import RestaurantMenuList from "../components/RestaurantMenuList";
 import CartList from "../components/CartList";
 import { clearCart } from "../utils/cartSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
 
@@ -10,6 +11,11 @@ const Cart = () => {
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    toast.success('Cart is cleared Successfully', {
+      className : "font-ProximaNovaSemiBold",
+      position : "top-center",
+      duration : 1500
+  });
   }
 
   return (
@@ -23,8 +29,7 @@ const Cart = () => {
           <CartList items={cartItems} />
         </>
       }
-
-
+      <Toaster/>
     </div>
   )
 }

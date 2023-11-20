@@ -1,14 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MENU_IMG } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
+import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 const RestaurantMenuList = (props) => {
     const { items } = props;
     const dispatch = useDispatch();
+    const [currentId, setCurrentId] = useState("");
 
     const handleAddItem = (item) => {
-        console.log(item);
-        dispatch(addItem(item))
+        setCurrentId(item?.card?.info?.id);
+        if(currentId != item?.card?.info?.id){
+            dispatch(addItem(item))
+            toast.success('Added to the Cart', {
+                className : "font-ProximaNovaSemiBold",
+                position : "top-center",
+                duration : 1500
+            });
+        }
+        else{
+            toast.error('Already added to the Cart', {
+                className : "font-ProximaNovaSemiBold",
+                position : "top-center",
+                duration : 1500
+            });
+        }
     }
 
     return (
@@ -40,7 +57,7 @@ const RestaurantMenuList = (props) => {
                     </div>
                 ))
             }
-
+            <Toaster />
         </>
     )
 }

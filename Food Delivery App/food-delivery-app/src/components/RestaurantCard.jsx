@@ -45,11 +45,14 @@ const RestaurantCard = (props) => {
 export const RestaurantCardOffer = (RestaurantCard) => {
     return (props) => {
         const { resInfo } = props;
+        const { isOpen } = resInfo;
         const { header, subHeader } = resInfo?.aggregatedDiscountInfoV3
         return (
             <>
                 <RestaurantCard {...props} />
-                <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{header} {subHeader}</div>
+                {
+                    isOpen && <div className='font-ProximaNovaBlack text-white/95 text-[22px] absolute bottom-[108px] left-4 group-hover:scale-95 transition-transform resoffer'>{header} {subHeader}</div> 
+                }
             </>
         )
     }

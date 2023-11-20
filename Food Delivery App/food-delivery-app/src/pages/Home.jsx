@@ -195,7 +195,7 @@ const Home = () => {
                     </>
                     :
                     <div className="text-center flex justify-center items-center mx-auto flex-col max-w-sm">
-                        <div className="mt-16 ml-auto mr-auto mb-16">
+                        <div className="mt-16 ml-auto mr-auto mb-7">
                             <img className="block mx-auto" src="/images/location_unserviceable.webp" alt="service_unavailable" width={238} height={238} />
                         </div>
                         <h2 className="text-xl font-GrotBlack text-customblack-1 text-center leading-6">Location Unserviceable</h2>
