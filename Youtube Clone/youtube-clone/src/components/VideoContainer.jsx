@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { YOUTUBE_POPULAR_VIDEOS_API } from '../utils/constants';
 import VideoCard from './VideoCard';
+import { Link } from 'react-router-dom';
 
 const VideoContainer = () => {
   const [Videos, setVideos] = useState([]);
@@ -29,9 +30,9 @@ const VideoContainer = () => {
     <div className='flex items-center flex-wrap justify-start'>
       {
         Videos?.map((video) => (
-          <div key={video?.id} className='w-[300px] h-80 cursor-pointer mb-5 mr-5'>
+          <Link to={`/watch?v=${video?.id}`} key={video?.id} className='w-[300px] h-80 cursor-pointer mb-5 mr-5'>
             <VideoCard info={video} />
-          </div>
+          </Link>
         ))
       }
     </div>

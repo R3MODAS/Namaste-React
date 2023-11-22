@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 const Sidebar = () => {
 
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -141,32 +142,39 @@ const Sidebar = () => {
             </div>
           </ul>
         </> : <>
-          <ul className="w-[3%] pl-4 pt-4">
-            <li className="flex flex-col items-center gap-1 mb-7 cursor-pointer">
-              <div className="text-xl">
-                <AiFillHome />
-              </div>
-              <p className="text-[10px]">Home</p>
-            </li>
-            <li className="flex flex-col items-center gap-1 mb-7 cursor-pointer">
-              <div className="text-xl">
-                <SiYoutubeshorts />
-              </div>
-              <p className="text-[10px]">Shorts</p>
-            </li>
-            <li className="flex flex-col items-center gap-1 mb-7 cursor-pointer">
-              <div className="text-xl">
-                <MdOutlineSubscriptions />
-              </div>
-              <p className="text-[10px]">Subscriptions</p>
-            </li>
-            <li className="flex flex-col items-center gap-1 cursor-pointer">
-              <div className="w-6">
-                <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block" }} fill="white"><path d="m11 7 6 3.5-6 3.5V7zm7 13H4V6H3v15h15v-1zm3-2H6V3h15v15zM7 17h13V4H7v13z"></path></svg>
-              </div>
-              <p className="text-[10px]">You</p>
-            </li>
-          </ul>
+          {
+            pathname === "/" ? <>
+              <ul className="w-[3%] pl-4 pt-4">
+                <li className="mb-7 cursor-pointer">
+                  <Link to="/" className="flex flex-col items-center gap-1">
+                    <div className="text-xl">
+                      <AiFillHome />
+                    </div>
+                    <p className="text-[10px]">Home</p>
+                  </Link>
+                </li>
+                <li className="flex flex-col items-center gap-1 mb-7 cursor-pointer">
+                  <div className="text-xl">
+                    <SiYoutubeshorts />
+                  </div>
+                  <p className="text-[10px]">Shorts</p>
+                </li>
+                <li className="flex flex-col items-center gap-1 mb-7 cursor-pointer">
+                  <div className="text-xl">
+                    <MdOutlineSubscriptions />
+                  </div>
+                  <p className="text-[10px]">Subscriptions</p>
+                </li>
+                <li className="flex flex-col items-center gap-1 cursor-pointer">
+                  <div className="w-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style={{ pointerEvents: "none", display: "block" }} fill="white"><path d="m11 7 6 3.5-6 3.5V7zm7 13H4V6H3v15h15v-1zm3-2H6V3h15v15zM7 17h13V4H7v13z"></path></svg>
+                  </div>
+                  <p className="text-[10px]">You</p>
+                </li>
+              </ul>
+            </> : <></>
+          }
+
         </>
       }
 

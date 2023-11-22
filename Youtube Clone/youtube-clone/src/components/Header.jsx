@@ -4,12 +4,13 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdKeyboardVoice } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
-      dispatch(toggleMenu());
+    dispatch(toggleMenu());
   }
 
   return (
@@ -18,9 +19,9 @@ const Header = () => {
         <button className="text-2xl" onClick={toggleMenuHandler}>
           <FiMenu />
         </button>
-        <div>
+        <Link to="/">
           <img src="/images/logo.png" alt="img" width={90} height={40} />
-        </div>
+        </Link>
       </div>
       <div className="flex items-center gap-4 pt-1">
         <div className="flex items-center justify-center">
