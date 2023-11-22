@@ -2,12 +2,20 @@ import { FiMenu } from "react-icons/fi";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdKeyboardVoice } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const toggleMenuHandler = () => {
+      dispatch(toggleMenu());
+  }
+
   return (
-    <header className="flex justify-between h-14 px-5">
-      <div className="flex items-center gap-4">
-        <button className="text-2xl">
+    <header className="flex justify-between h-14 px-6">
+      <div className="flex items-center gap-6">
+        <button className="text-2xl" onClick={toggleMenuHandler}>
           <FiMenu />
         </button>
         <div>

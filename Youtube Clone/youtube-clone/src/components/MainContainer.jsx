@@ -3,7 +3,7 @@ import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div>
+    <div className="ml-10">
       <SuggestionList />
       <VideoContainer />
     </div>
