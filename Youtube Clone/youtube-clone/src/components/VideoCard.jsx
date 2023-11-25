@@ -6,15 +6,15 @@ const VideoCard = ({info}) => {
     const {viewCount} = statistics;
 
     const truncateString = (str) => {
-        return str.slice(0,75) + "...";
+        return str.slice(0,70) + "...";
     }
 
     ;
   return (
     <div>
         <img src={thumbnails?.high?.url} alt="thumbnail" className='w-full h-[170px] rounded-lg object-cover' />
-        <h2 className='pt-3 font-medium text-base w-[80%]'>{truncateString(title)}</h2>
-        <h3 className='text-[#aaa] text-sm'>{channelTitle}</h3>
+        <h2 className='pt-3 font-medium text-base'>{truncateString(title)}</h2>
+        <h3 className='text-[#aaa] text-sm pt-1'>{channelTitle}</h3>
         <div className='text-[#aaa] text-sm'>
             <span>{viewCount} views</span>
         </div>

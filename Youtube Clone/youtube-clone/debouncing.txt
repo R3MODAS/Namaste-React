@@ -1,0 +1,12 @@
+What is Debouncing ?
+
+-> When the difference between 2 key strokes is more or equal to 200ms then make an API call and if the difference is less than 200ms then decline/don't make an API call.
+
+>= 200 -> Typing slow [Make API call]
+< 200 -> Typing fast [Decline API call]
+
+When we press a key (i) to search for the video, it will first render the component and then the callback function inside the useEffect() hook and then the api is called after 200ms (setTimeout(fn, 200)) and store this timerid and destroy the setTimeout() when the component is re-rendered.
+
+When we again press a key (ip) to search for the video, it will first destroy the component and useEffect callback func returns by clearing the setTimeout(fnc,200) and then it will re-render the component then the useEffect is called then again the api call is made after 200ms.
+
+ok now if someone starts typing by pressing key (ip) even before 200ms, then the API call will not be made as before even the setTimeout(fn,200) is executed  

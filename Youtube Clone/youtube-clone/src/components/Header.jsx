@@ -5,8 +5,18 @@ import { MdKeyboardVoice } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [SearchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    // API call on change of Search Query
+    
+
+
+  },[SearchQuery])
+
   const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
@@ -25,7 +35,9 @@ const Header = () => {
       </div>
       <div className="flex items-center gap-4 pt-1">
         <div className="flex items-center justify-center">
-          <input type="text" placeholder="Search" className="border border-[#303030] bg-transparent w-[520px] h-11 rounded-l-full px-5 border-r-0" />
+          <input type="text" placeholder="Search" className="border border-[#303030] bg-transparent w-[520px] h-11 rounded-l-full px-5 border-r-0"
+            value={SearchQuery} onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <button type="submit" className="bg-[#ffffff14] w-16 h-11 rounded-r-full text-xl px-5 border border-[#303030]">
             <IoSearchOutline />
           </button>
