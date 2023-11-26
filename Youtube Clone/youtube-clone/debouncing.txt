@@ -1,12 +1,28 @@
 What is Debouncing ?
+-> We are not making API call on every key press as that will affect our performance a lot so instead we are gonna use the concept of Debouncing that is :
 
--> When the difference between 2 key strokes is more or equal to 200ms then make an API call and if the difference is less than 200ms then decline/don't make an API call.
+Difference between 2 key strokes >= 200 -> Typing slow [Make API call]
+Difference between 2 key strokes < 200 -> Typing fast [Decline API call]
 
->= 200 -> Typing slow [Make API call]
-< 200 -> Typing fast [Decline API call]
+Making Api call and showing suggestions for typing fast is useless and will affect the performance so to prevent that we are gonna use the concept of Debouncing.
 
-When we press a key (i) to search for the video, it will first render the component and then the callback function inside the useEffect() hook and then the api is called after 200ms (setTimeout(fn, 200)) and store this timerid and destroy the setTimeout() when the component is re-rendered.
+// Main Explaination
+We first did a two way binding with the Search Input and now we define a useEffect Hook and inside that we are gonna call the useEffect whenever the Search Input changes okay [SearchQuery]. Then inside that, we are gonna make an API call after every key press and if the difference between 2 Api call is < 200ms then the Api Call will be declined.
 
-When we again press a key (ip) to search for the video, it will first destroy the component and useEffect callback func returns by clearing the setTimeout(fnc,200) and then it will re-render the component then the useEffect is called then again the api call is made after 200ms.
+When we press key
 
-ok now if someone starts typing by pressing key (ip) even before 200ms, then the API call will not be made as before even the setTimeout(fn,200) is executed  
+key - i
+- render the component
+- useEffect()
+- execution of the setTimeout() as it starts the timer => makes api call after 200ms
+
+key - ip
+- render the component
+- useEffect()
+- execution of the setTimeout() as it starts the timer => makes api call after 200ms but this time this is a new timer 
+
+but while using setTimeout() we need to clear the setTimeout() as well so to do that we can just return () => {
+    clearTimeout(timer); // timer = setTimeout();
+} inside the useEffect as it will return whenever the component is updated/unmounted
+
+so suppose the user pressed i and at the same time typed ip fast which is < 200ms then the api call for (key i) will be destroyed before even the API call is made inside setTimeout() and now if we stop typing and wait for >200ms then yes we will see results only for (key ip) so it just saved that extra (2 times api call) we just made 1 api call. 

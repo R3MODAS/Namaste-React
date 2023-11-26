@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*,*::before,*::after{
+    font-family: 'Roboto', sans-serif;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
 }
