@@ -2,20 +2,40 @@ import { FiMenu } from "react-icons/fi";
 import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdKeyboardVoice } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
   const [SearchQuery, setSearchQuery] = useState("");
   const [Suggestions, setSuggestions] = useState([]);
   const [ShowSuggestions, setShowSuggestions] = useState(false);
+  const SearchCache = useSelector((store) => store.search);
+  const dispatch = useDispatch();
+
+  /* 
+    SearchCache = {
+      "iphone" : ["iphone", "iphone 11"]
+    }
+
+    SearchQuery = "iphone"
+    
+    if SearchCache[SearchQuery] is true => just show the suggestions with the SearchCache[SearchQuery] which is the array ["iphone", "iphone 11"] results rather than again doing a api call
+  
+  */
 
   useEffect(() => {
     // API call on change of Search Query
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (SearchCache[SearchQuery]) {
+        setSuggestions(SearchCache[SearchQuery])
+      } else {
+        getSearchSuggestions()
+      }
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -33,6 +53,11 @@ const Header = () => {
       else {
         const json = await res.json();
         setSuggestions(json[1]);
+
+        // Update the Cache
+        dispatch(cacheResults({
+          [SearchQuery]: json[1]
+        }))
       }
     } catch (err) {
       console.log(err);
@@ -43,8 +68,6 @@ const Header = () => {
     setSearchQuery("");
     setSuggestions([]);
   }
-
-  const dispatch = useDispatch();
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -64,7 +87,7 @@ const Header = () => {
         <div className="flex items-center justify-center relative">
           <div className="relative">
             <input type="text" placeholder="Search" className="border border-[#303030] bg-transparent w-[520px] h-11 rounded-l-full px-5 border-r-0" value={SearchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)}
+              onFocus={() => setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)}
             />
             {
               Suggestions.length != 0 && <div className="text-3xl absolute top-1/2 -translate-y-1/2 right-1 cursor-pointer" onClick={handleClearInput}>

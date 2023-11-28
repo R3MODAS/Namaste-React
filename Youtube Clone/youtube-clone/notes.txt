@@ -1,0 +1,56 @@
+What is Debouncing ?
+-> We are not making API call on every key press as that will affect our performance a lot so instead we are gonna use the concept of Debouncing that is :
+
+Difference between 2 key strokes >= 200 -> Typing slow [Make API call]
+Difference between 2 key strokes < 200 -> Typing fast [Decline API call]
+
+Making Api call and showing suggestions for typing fast is useless and will affect the performance so to prevent that we are gonna use the concept of Debouncing.
+
+// Main Explaination
+We first did a two way binding with the Search Input and now we define a useEffect Hook and inside that we are gonna call the useEffect whenever the Search Input changes okay [SearchQuery]. Then inside that, we are gonna make an API call after every key press and if the difference between 2 Api call is < 200ms then the Api Call will be declined.
+
+When we press key
+
+key - i
+- render the component
+- useEffect()
+- execution of the setTimeout() as it starts the timer => makes api call after 200ms
+
+key - ip
+- render the component
+- useEffect()
+- execution of the setTimeout() as it starts the timer => makes api call after 200ms but this time this is a new timer 
+
+but while using setTimeout() we need to clear the setTimeout() as well so to do that we can just return () => {
+    clearTimeout(timer); // timer = setTimeout();
+} inside the useEffect as it will return whenever the component is updated/unmounted
+
+so suppose the user pressed i and at the same time typed ip fast which is < 200ms then the api call for (key i) will be destroyed before even the API call is made inside setTimeout() and now if we stop typing and wait for >200ms then yes we will see results only for (key ip) so it just saved that extra (2 times api call) we just made 1 api call. 
+
+// To Cache the data and not make unnecessary API calls we can use redux
+Suppose we are searching for something [iphone] with keyword (ip) and now if we again search for the same keyword (ip) it should not make api call for that
+
+Cache :
+time complexity to search in Array = 0(n) // We need an iteration to find out or Linear search
+time complexity to search in Object = 0(1)
+
+So we create a searchSlice and inside that we define {} as initial state then in reducers we define cacheResults as action and it will store all the cache Results we search so inside cacheResults it will be :
+
+cacheResults : (state,action) => {
+    state = Object.assign(state, action.payload) // We pass in the state as searchQuery and the action.payload will be an array of searchSuggestions
+}
+
+Defining Logics
+------------------
+// Pass the search Results
+
+Inside the getSearchSuggestions fn we will dispatch the cacheResults value
+it will be an Object that will store key value (searchQuery as key and suggestions as value)
+
+dispatch(cacheResults({
+    [SearchQuery] : json[1]
+}))
+
+// Now we need to use that cacheResults value to control the API call
+if cacheResults contains SearchQuery then just show the Suggestions with the searchQuery we used earlier : cacheResults[SearchQuery] and not make Api call again and use that cached data instead
+else you can just make Api call and in that Api call you can also store some more cache data for further usage
