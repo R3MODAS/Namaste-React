@@ -12,7 +12,7 @@ const VideoCard = ({info}) => {
     ;
   return (
     <div>
-        <img src={thumbnails?.high?.url} alt="thumbnail" className='w-full h-[170px] rounded-lg object-cover' />
+        <img src={thumbnails?.medium?.url} alt="thumbnail" className='w-full h-[170px] rounded-lg object-cover' />
         <h2 className='pt-3 font-medium text-base'>{truncateString(title)}</h2>
         <h3 className='text-[#aaa] text-sm pt-1'>{channelTitle}</h3>
         <div className='text-[#aaa] text-sm'>

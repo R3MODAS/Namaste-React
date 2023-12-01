@@ -4,16 +4,17 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdKeyboardVoice } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
-import { cacheResults } from "../utils/searchSlice";
+import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API, YOUTUBE_SEARCH_SUGGESTION_API } from "../utils/constants";
+import { cacheResults, searchResults } from "../utils/searchSlice";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [SearchQuery, setSearchQuery] = useState("");
   const [Suggestions, setSuggestions] = useState([]);
   const [ShowSuggestions, setShowSuggestions] = useState(false);
-  const SearchCache = useSelector((store) => store.search);
+  const SearchCache = useSelector((store) => store.search.suggestions);
   const dispatch = useDispatch();
 
   /* 
@@ -45,7 +46,7 @@ const Header = () => {
 
   const getSearchSuggestions = async () => {
     try {
-      const res = await fetch(YOUTUBE_SEARCH_API + SearchQuery);
+      const res = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + SearchQuery);
       if (!res.ok) {
         const err = res.status;
         throw new Error(err);
@@ -61,6 +62,24 @@ const Header = () => {
       }
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  const handleSearch = async(item) => {
+    try{
+      setShowSuggestions(false);
+      const res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${item}&key=${GOOGLE_API_KEY}`);
+      if(!res.ok){
+        const err = res.status;
+        throw new Error(err);
+      }
+      else{
+        const json = await res.json();
+        dispatch(searchResults(json?.items));
+        navigate("/search");
+      }
+    }catch(err){
+      console.log(err)
     }
   }
 
@@ -87,8 +106,7 @@ const Header = () => {
         <div className="flex items-center justify-center relative">
           <div className="relative">
             <input type="text" placeholder="Search" className="border border-[#303030] bg-transparent w-[520px] h-11 rounded-l-full px-5 border-r-0" value={SearchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)}
-            />
+              onFocus={() => setShowSuggestions(true)}/>
             {
               Suggestions.length != 0 && <div className="text-3xl absolute top-1/2 -translate-y-1/2 right-1 cursor-pointer" onClick={handleClearInput}>
                 <IoCloseOutline />
@@ -103,11 +121,13 @@ const Header = () => {
             <ul className="absolute top-[3.3rem] left-0 right-0 w-[520px] rounded-xl shadow-lg bg-[#212121] pt-5 pb-1 px-4">
               {
                 Suggestions?.map((item) => (
-                  <li key={item} className="flex items-center gap-3 pt-2 pb-2 mb-3 cursor-pointer hover:bg-[#ffffff1a]">
+                  <li key={item} className="flex items-center gap-3 pt-2 pb-2 mb-3 cursor-pointer hover:bg-[#ffffff1a]" onClick={() => handleSearch(item)}>
                     <button type="submit" className="text-lg">
                       <IoSearchOutline />
                     </button>
-                    <p className="font-medium">{item}</p>
+                    <div>
+                      <p className="font-medium">{item}</p>
+                    </div>
                   </li>
                 ))
               }

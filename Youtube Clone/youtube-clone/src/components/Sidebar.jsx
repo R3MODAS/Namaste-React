@@ -9,6 +9,7 @@ const Sidebar = () => {
 
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   const { pathname } = useLocation();
+  // 
 
   return (
     <>
@@ -16,10 +17,8 @@ const Sidebar = () => {
         isMenuOpen === true ? <>
           <ul className="w-[13%] pl-4 pt-3">
             <div className="flex flex-col items-start justify-center">
-              <li className="w-48 mb-1 cursor-pointer">
-                <NavLink to="/" className={({ isActive }) => (
-                  isActive ? "bg-[#ffffff1a] flex items-center h-10 gap-6 rounded-xl px-3" : "bg-[#0f0f0f] flex items-center h-10 gap-6 rounded-xl px-3"
-                )}>
+              <li className="w-48 mb-1 cursor-pointer bg-[#0f0f0f] hover:bg-[#ffffff1a] rounded-xl">
+                <NavLink to="/" className="flex items-center h-10 gap-6  px-3">
                   <div className="text-xl">
                     <AiFillHome />
                   </div>
@@ -144,7 +143,7 @@ const Sidebar = () => {
         </> : <>
           {
             pathname === "/" ? <>
-              <ul className="w-[3%] pl-4 pt-4">
+              <ul className="w-[3%] pl-4 pt-4 overflow-auto">
                 <li className="mb-7 cursor-pointer">
                   <Link to="/" className="flex flex-col items-center gap-1">
                     <div className="text-xl">
