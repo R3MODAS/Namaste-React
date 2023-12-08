@@ -1,39 +1,46 @@
-import { useEffect, useState } from 'react'
-import { YOUTUBE_POPULAR_VIDEOS_API } from '../utils/constants';
+import React, { useEffect, useState } from 'react'
+import { YOUTUBE_VIDEO_API } from '../utils/constants';
 import VideoCard from './VideoCard';
 import { Link } from 'react-router-dom';
+import ShimmerUi from './ShimmerUi';
 
 const VideoContainer = () => {
+
   const [Videos, setVideos] = useState([]);
-
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+  
   useEffect(() => {
-    getPopularVideos();
-  },[])
+    FetchPopularVideos();
+  }, [])
 
-  const getPopularVideos = async() => {
-    try{
-      const response = await fetch(YOUTUBE_POPULAR_VIDEOS_API);
-      if(!response.ok){
-        const error = response.status;
-        throw new Error(error);
+  const FetchPopularVideos = async() => {
+    try {
+      const res = await fetch(YOUTUBE_VIDEO_API + API_KEY);
+      if(!res.ok){
+        const err = res.status;
+        throw new Error(err)
       }
       else{
-        const json = await response.json();
+        const json = await res.json();
         setVideos(json?.items);
       }
-    }catch(err){
-      console.log(err)
+    } catch (error) {
+      console.log(error)
     }
   }
 
+  if(Videos.length <= 0){
+    return <ShimmerUi />
+  }
+
   return (
-    <div className='flex items-center flex-wrap justify-start mt-4'>
+    <div className='flex flex-wrap gap-3'>
       {
-        Videos?.map((video) => (
-          <Link to={`/watch?v=${video?.id}`} key={video?.id} className='w-[300px] h-80 cursor-pointer mb-5 mr-5'>
-            <VideoCard info={video} />
+        Videos?.map((item) => (
+          <Link key={item?.id} className='w-80 mb-2 hover:scale-95 transition-all' to={`/watch?v=${item?.id}`}>
+            <VideoCard key={item?.id} info = {item} />
           </Link>
-        ))
+        ) )
       }
     </div>
   )

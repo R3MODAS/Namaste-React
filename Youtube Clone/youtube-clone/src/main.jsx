@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import Home from './pages/Home.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Watch from './pages/Watch.jsx'
+import Home from './pages/Home.jsx'
+import WatchPage from './pages/WatchPage.jsx'
 import MainContainer from './components/MainContainer.jsx'
 import Search from './pages/Search.jsx'
 
@@ -20,10 +20,10 @@ const appRouter = createBrowserRouter([
           {
             path: "/",
             element: <MainContainer />
-          },
+          }, 
           {
             path: "/watch",
-            element: <Watch />
+            element: <WatchPage />
           },
           {
             path : "/search",
@@ -33,7 +33,6 @@ const appRouter = createBrowserRouter([
       }
     ]
   }
-
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

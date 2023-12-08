@@ -1,74 +1,75 @@
-import { FiMenu } from "react-icons/fi";
-import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
+import { RiVideoAddLine } from "react-icons/ri";
+import { FaRegBell } from "react-icons/fa6";
+import { FaUserCircle } from "react-icons/fa";
 import { MdKeyboardVoice } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API, YOUTUBE_SEARCH_SUGGESTION_API } from "../utils/constants";
-import { cacheResults, searchResults } from "../utils/searchSlice";
+import { YOUTUBE_SEARCH_SUGGESTION_API } from "../utils/constants";
+import { cacheResults, clearcacheResults, searchResults } from "../utils/youtubeSlice";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const [SearchQuery, setSearchQuery] = useState("");
-  const [Suggestions, setSuggestions] = useState([]);
-  const [ShowSuggestions, setShowSuggestions] = useState(false);
-  const SearchCache = useSelector((store) => store.search.suggestions);
+  const [SearchText, setSearchText] = useState("");
+  const [Suggestions, setSuggestions] = useState([])
+  const [ShowSuggestionBox, setShowSuggestionBox] = useState(true);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  /* 
-    SearchCache = {
-      "iphone" : ["iphone", "iphone 11"]
-    }
-
-    SearchQuery = "iphone"
-    
-    if SearchCache[SearchQuery] is true => just show the suggestions with the SearchCache[SearchQuery] which is the array ["iphone", "iphone 11"] results rather than again doing a api call
-  
-  */
+  const cachedData = useSelector((store) => store.youtube.suggestions);
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
   useEffect(() => {
-    // API call on change of Search Query
     const timer = setTimeout(() => {
-      if (SearchCache[SearchQuery]) {
-        setSuggestions(SearchCache[SearchQuery])
-      } else {
-        getSearchSuggestions()
+      if(cachedData[SearchText]){
+        setSuggestions(cachedData[SearchText]);
+      }else{
+        getSearchSuggestions();
       }
-    }, 200);
+    }, 200)
 
     return () => {
       clearTimeout(timer);
     }
-
-  }, [SearchQuery])
+  }, [SearchText]);
 
   const getSearchSuggestions = async () => {
     try {
-      const res = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + SearchQuery);
+      const res = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + SearchText);
       if (!res.ok) {
         const err = res.status;
-        throw new Error(err);
+        throw new Error(err)
       }
       else {
         const json = await res.json();
         setSuggestions(json[1]);
 
-        // Update the Cache
+        // Update the Cached Data
         dispatch(cacheResults({
-          [SearchQuery]: json[1]
+          [SearchText] : json[1]
         }))
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error)
     }
   }
 
-  const handleSearch = async(item) => {
-    try{
-      setShowSuggestions(false);
-      const res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${item}&key=${GOOGLE_API_KEY}`);
+  const handleSidebar = () => {
+    dispatch(toggleMenu());
+  }
+
+  const handleClearSearch = () => {
+    setSearchText("");
+    setSuggestions([]);
+    dispatch(clearcacheResults());
+  }
+
+  const handleSearchItem = async(item) => {
+    try {
+      const res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${item}&key=${API_KEY}`);
+
       if(!res.ok){
         const err = res.status;
         throw new Error(err);
@@ -76,56 +77,47 @@ const Header = () => {
       else{
         const json = await res.json();
         dispatch(searchResults(json?.items));
+        setShowSuggestionBox(false);
         navigate("/search");
       }
-    }catch(err){
-      console.log(err)
+    } catch (error) {
+      console.log(error)
     }
   }
 
-  const handleClearInput = () => {
-    setSearchQuery("");
-    setSuggestions([]);
-  }
-
-  const toggleMenuHandler = () => {
-    dispatch(toggleMenu());
-  }
-
   return (
-    <header className="flex justify-between h-14 px-6">
+    <header className="flex justify-between items-center h-14 px-6 fixed top-0 left-0 right-0 z-20 w-full bg-[#0F0F0F]">
+
       <div className="flex items-center gap-6">
-        <button className="text-2xl" onClick={toggleMenuHandler}>
-          <FiMenu />
-        </button>
+        <RxHamburgerMenu className="text-2xl cursor-pointer" onClick={handleSidebar} />
         <Link to="/">
-          <img src="/images/logo.png" alt="img" width={90} height={40} />
+          <img src="./images/logo.png" alt="logo" className="h-5" />
         </Link>
       </div>
-      <div className="flex items-center gap-4 pt-1">
-        <div className="flex items-center justify-center relative">
-          <div className="relative">
-            <input type="text" placeholder="Search" className="border border-[#303030] bg-transparent w-[520px] h-11 rounded-l-full px-5 border-r-0" value={SearchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setShowSuggestions(true)}/>
-            {
-              Suggestions.length != 0 && <div className="text-3xl absolute top-1/2 -translate-y-1/2 right-1 cursor-pointer" onClick={handleClearInput}>
-                <IoCloseOutline />
-              </div>
-            }
+
+      <div className="flex items-center gap-6">
+        <div className="relative">
+          <div className="flex items-center">
+            <div className="flex items-center h-11 relative">
+              <input type="text" placeholder="Search" className="bg-[#121212] text-[#ffffffe0] border border-[#303030] w-[550px] h-full rounded-l-full pl-5" value={SearchText} onChange={e => setSearchText(e.target.value)} onFocus={() => setShowSuggestionBox(true)} />
+              {
+                Suggestions.length != 0 && <IoCloseOutline className="text-3xl absolute right-2 cursor-pointer" onClick={handleClearSearch} />
+              }
+            </div>
+            <div className="text-2xl bg-[#ffffff14] flex items-center justify-center w-16 rounded-r-full cursor-pointer h-11">
+              <IoSearchOutline />
+            </div>
           </div>
-          <button type="submit" className="bg-[#ffffff14] w-16 h-11 rounded-r-full text-xl px-5 border border-[#303030]">
-            <IoSearchOutline />
-          </button>
           {
-            (ShowSuggestions && Suggestions.length != 0) &&
-            <ul className="absolute top-[3.3rem] left-0 right-0 w-[520px] rounded-xl shadow-lg bg-[#212121] pt-5 pb-1 px-4">
+            (Suggestions.length != 0 && ShowSuggestionBox) &&
+            <ul className="absolute top-[3rem] left-0 right-0 w-[550px] rounded-xl shadow-lg bg-[#212121] pt-5 pb-3">
               {
                 Suggestions?.map((item) => (
-                  <li key={item} className="flex items-center gap-3 pt-2 pb-2 mb-3 cursor-pointer hover:bg-[#ffffff1a]" onClick={() => handleSearch(item)}>
+                  <li key={item} className="pt-2 pb-2 mb-1 pl-5 cursor-pointer hover:bg-[#ffffff1a] flex gap-6" onClick={() => handleSearchItem(item)}>
                     <button type="submit" className="text-lg">
                       <IoSearchOutline />
                     </button>
-                    <div>
+                    <div className="inline-block">
                       <p className="font-medium">{item}</p>
                     </div>
                   </li>
@@ -134,16 +126,17 @@ const Header = () => {
             </ul>
           }
         </div>
-        <div className="text-2xl bg-[#303030] h-10 w-10 flex items-center justify-center rounded-full">
-          <MdKeyboardVoice />
-        </div>
-      </div>
-      <div className="flex justify-center items-center gap-4 pt-1">
-        <button className="text-2xl">
-          <IoMdNotificationsOutline />
+        <button className="bg-[#ffffff14] h-11 flex justify-center items-center w-11 rounded-full cursor-pointer">
+          <MdKeyboardVoice className="text-2xl" />
         </button>
-        <button className="w-7 h-7 bg-red-500 rounded-full mt-1"></button>
       </div>
+
+      <div className="flex items-center gap-6 cursor-pointer">
+        <RiVideoAddLine className="text-2xl" />
+        <FaRegBell className="text-2xl" />
+        <FaUserCircle className="text-2xl" />
+      </div>
+
     </header>
   )
 }

@@ -1,11 +1,22 @@
-import SuggestionList from "./SuggestionList";
-import VideoContainer from "./VideoContainer";
+import React from 'react'
+import VideoContainer from "./VideoContainer"
+import { useSelector } from 'react-redux';
 
 const MainContainer = () => {
+  const isSidebarOpen = useSelector((store) => store.app.isMenuOpen);
+
   return (
-    <div className="ml-10">
-      <VideoContainer />
-    </div>
+    <>
+      {
+        isSidebarOpen ?
+        <div className='absolute left-[12%] top-14 min-h-screen pt-3'>
+          <VideoContainer />
+        </div> : <div className='absolute left-[5%] top-14 min-h-screen pt-3'>
+          <VideoContainer />
+        </div>
+      }
+
+    </>
   )
 }
 
