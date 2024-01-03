@@ -1,4 +1,4 @@
-const CORSPROXY = "https://corsproxy.io/?";
+export const CORSPROXY = "https://cors-anywhere.herokuapp.com/";
 
 export const LOCATION_API = `${CORSPROXY}https://www.swiggy.com/dapi/misc/place-autocomplete?input=`;
 
@@ -12,8 +12,6 @@ export const LOGO_URL =
 export const RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const GRAY_RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,e_grayscale/";
-
-export const MENU_API = `${CORSPROXY}https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.9747271&lng=88.43372099999999&restaurantId=`;
 
 export const MENU_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 

@@ -7,7 +7,6 @@ import { CATEGORY_IMG, IMG_CAROUSEL } from "../utils/constants";
 import { useSelector } from "react-redux";
 import Modal from "../components/Modal";
 
-
 const Home = () => {
 
     const [AllRestaurants, FilteredRestaurants, setAllRestaurants, setFilteredRestaurants, BannerInfo, setBannerInfo, FoodCategories, setFoodCategories] = useRestaurant();
@@ -101,7 +100,7 @@ const Home = () => {
             }
 
 
-            <div className="container mx-auto pt-24 pb-32 min-h-screen">
+            <div className="container mx-auto pt-24 pb-20 min-h-screen">
 
                 {
                     FilteredRestaurants && AllRestaurants ?
