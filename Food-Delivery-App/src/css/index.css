@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "Grot Thin";
+    src: url("fonts/BasisGrotesquePro-Thin.ttf");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Grot Reg";
+    src: url("fonts/BasisGrotesquePro-Regular.ttf");
+    font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Grot Med";
+    src: url("fonts/BasisGrotesquePro-Medium.ttf");
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Grot Bold";
+    src: url("fonts/BasisGrotesquePro-Bold.ttf");
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Grot Black";
+    src: url("fonts/BasisGrotesquePro-Black.ttf");
+    font-display: swap;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Proxi Thin";
+    src: url("fonts/ProximaNovaCond-Thin.ttf");
+    font-display: swap;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Proxi Med";
+    src: url("fonts/ProximaNovaCond-Medium.ttf");
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Proxi Semi";
+    src: url("fonts/ProximaNovaCond-SemiBold.ttf");
+    font-display: swap;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Proxi Bold";
+    src: url("fonts/BasisGrotesquePro-Bold.ttf");
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Proxi Black";
+    src: url("fonts/ProximaNovaCond-Black.ttf");
+    font-display: swap;
+    font-weight: 900;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-underline::after{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background-color: #282c3f;
+    height: 2px;
+    width: 100%;
+}
+
+.custom-underline:hover::after{
+    background-color: #fc8019;
+}

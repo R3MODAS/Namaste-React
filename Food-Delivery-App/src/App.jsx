@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { Home } from "./pages"
+import { Checkout, Home } from "./pages"
 import Header from "./components/Header"
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   )
