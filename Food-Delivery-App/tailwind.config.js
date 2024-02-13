@@ -9,9 +9,11 @@ export default {
       colors: {
         'color-1': '#282c3f',
         'color-2':'#fc8019',
+        'color-3':'rgba(2, 6, 12, 0.75)',
+        'color-4':'rgba(2, 6, 12, 0.6)'
       },
       fontFamily: {
-        "GrotThin": ["GrotThin"],
+        "GrotThin": ["Grot Thin"],
         "GrotReg": ["Grot Reg"],
         "GrotMed": ["Grot Med"],
         "GrotBold": ["Grot Bold"],
@@ -24,5 +26,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
