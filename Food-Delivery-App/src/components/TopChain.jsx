@@ -1,5 +1,5 @@
 import React from 'react'
-import { TOP_CHAIN } from '../utils/constants'
+import { RES_IMG } from '../utils/constants'
 
 const TopChain = ({ info }) => {
     const { areaName, name, avgRating, cloudinaryImageId, sla, cuisines } = info;
@@ -14,9 +14,9 @@ const TopChain = ({ info }) => {
     }
 
     return (
-        <div className='flex flex-col gap-3 transition-all cursor-pointer'>
+        <div className='flex flex-col gap-3 transition-all cursor-pointer hover:scale-95'>
             <div className='w-72 h-48'>
-                <img src={TOP_CHAIN + cloudinaryImageId} alt="top-chain" className='rounded-xl w-full h-full object-cover' />
+                <img src={RES_IMG + cloudinaryImageId} alt="top-chain" className='rounded-xl w-full h-full object-cover' />
             </div>
             <div className='ml-3'>
                 <h2 className='font-GrotBold text-lg tracking-tighter text-color-3'>{truncateResName(name)}</h2>

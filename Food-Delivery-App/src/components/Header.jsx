@@ -1,9 +1,14 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 
-const Header = () => {
+const Header = (props) => {
+    const {toggleSidebar, setToggleSidebar} = props;
+
+    const handleSidebar = () => {
+        setToggleSidebar(!toggleSidebar)
+    }
+
     return (
         <header className='shadow-md w-full fixed left-0 top-0 right-0 h-20 z-10 px-5 text-color-1 bg-white'>
             <div className='flex justify-between items-center h-full container mx-auto'>
@@ -11,7 +16,7 @@ const Header = () => {
                     <Link to="/">
                         <img src="/assets/swiggy-logo.png" alt="logo" className='h-12' />
                     </Link>
-                    <button type='button' className='flex items-center font-ProximaNovaBold gap-2 text-sm'>
+                    <button onClick={handleSidebar} type='button' className='flex items-center font-ProximaNovaBold gap-2 text-sm'>
                         <span className='custom-underline relative hover:text-color-2'>
                             Other
                         </span>

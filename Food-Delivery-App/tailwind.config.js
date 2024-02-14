@@ -10,7 +10,9 @@ export default {
         'color-1': '#282c3f',
         'color-2':'#fc8019',
         'color-3':'rgba(2, 6, 12, 0.75)',
-        'color-4':'rgba(2, 6, 12, 0.6)'
+        'color-4':'rgba(2, 6, 12, 0.6)',
+        'color-5':'#93959f',
+        'color-6':'#535665'
       },
       fontFamily: {
         "GrotThin": ["Grot Thin"],
