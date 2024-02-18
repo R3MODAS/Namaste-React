@@ -28,3 +28,7 @@ setRestaurant is a function that helps to change the value of the state variable
 It is the traditional way of creating projects as all the diff code(Auth, UI, DB, API) are kept in a single place and this project is compiled and deployed and this becomes all big bulky project and this is known as monolith architecture.
 
 ## Microservices Architecture
+Every code is in services(different places) and everyone is interconnected to each other and can talk to each other. This concept is also known as Seperation of concerns / Single Responsibility principle.
+
+How do the services talk to each other ?
+- They are hosted in different PORT Numbers and those ports are mapped to domain names and routes are made /api, /sms and by visiting the routes they can talk to each other.
