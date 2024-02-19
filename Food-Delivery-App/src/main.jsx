@@ -2,12 +2,30 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './css/index.css'
-import { BrowserRouter as Router } from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Checkout, Error, Home } from './pages'
+import RestaurantMenu from './components/RestaurantMenu'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>
-)
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />
+      }
+    ],
+    errorElement: <Error />
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={appRouter} />)

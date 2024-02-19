@@ -1,15 +1,8 @@
-import { Route, Routes } from "react-router-dom"
-import { Checkout, Home } from "./pages"
+import { Outlet } from "react-router-dom"
 
 const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </>
+    <Outlet />
   )
 }
 

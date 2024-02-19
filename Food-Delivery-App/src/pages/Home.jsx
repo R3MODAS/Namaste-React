@@ -1,51 +1,19 @@
-import { useEffect, useState } from 'react'
-import { IMG_CAROUSEL, RESTAURANT_API, SEARCH_LOCATION_API } from '../utils/constants'
+import { useState } from 'react'
+import { IMG_CAROUSEL, SEARCH_LOCATION_API } from '../utils/constants'
 import TopChain from '../components/TopChain';
 import RestaurantCard from '../components/RestaurantCard';
 import Header from "../components/Header"
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { IoCloseOutline } from "react-icons/io5";
 import { GoLocation } from "react-icons/go";
+import ShimmerHome from '../components/ShimmerHome';
+import { Link } from 'react-router-dom';
+import useRestaurant from '../hooks/useRestaurant';
 
 const Home = () => {
-  const [ImageCarousel, setImageCarousel] = useState([]);
-  const [TopChains, setTopChains] = useState([]);
-  const [Restaurants, setRestaurants] = useState([]);
-  const [FilteredRestaurants, setFilteredRestaurants] = useState([])
+  const [ImageCarousel, setImageCarousel, TopChains, setTopChains, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants] = useRestaurant();
   const [Locations, setLocations] = useState([])
   const [toggleSidebar, setToggleSidebar] = useState(true)
   const [SearchText, setSearchText] = useState("")
-
-  useEffect(() => {
-    fetchRestaurantData()
-  }, [])
-
-  const fetchRestaurantData = async () => {
-    try {
-      const response = await fetch(RESTAURANT_API);
-      if (!response.ok) {
-        const err = response.status;
-        throw new err
-      }
-      else {
-        const json = await response.json();
-
-        const restaurants = json?.data?.cards?.find((x) => x?.card?.card?.id === "restaurant_grid_listing")?.card?.card?.gridElements?.infoWithStyle?.restaurants
-
-        const imgCarousel = json?.data?.cards?.find(x => x?.card?.card?.id === "whats_on_your_mind")?.card?.card?.gridElements?.infoWithStyle?.info
-
-        const topChains = json?.data?.cards?.find(x => x?.card?.card?.id === "top_brands_for_you")?.card?.card?.gridElements?.infoWithStyle?.restaurants
-
-        setImageCarousel(imgCarousel)
-        setTopChains(topChains)
-        setRestaurants(restaurants)
-        setFilteredRestaurants(restaurants)
-      }
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
 
   const handleFoodScrollLeft = () => {
     const foodCategory = document.querySelector(".food-category");
@@ -95,7 +63,11 @@ const Home = () => {
   }
 
   const handleRating = () => {
-    setRestaurants(FilteredRestaurants.filter(res => res?.info?.avgRating >= 4.0))
+    setFilteredRestaurants(AllRestaurants.filter(res => res?.info?.avgRating > 4))
+  }
+
+  if (AllRestaurants.length <= 0) {
+    return <ShimmerHome />
   }
 
   return (
@@ -133,7 +105,6 @@ const Home = () => {
 
             <div className="divider"></div>
           </>
-
         }
 
         {
@@ -152,8 +123,10 @@ const Home = () => {
               <div className="top-chain-category overflow-x-scroll scroll-smooth scrollbar-hide w-[1500px]">
                 <div className='flex gap-8'>
                   {
-                    TopChains?.map((item) => (
-                      <TopChain info={item?.info} key={item?.info?.id} />
+                    TopChains?.map((res) => (
+                      <Link key={res?.info?.id} to={`/restaurants/${res?.info?.id}`}>
+                        <TopChain info={res?.info} />
+                      </Link>
                     ))
                   }
                 </div>
@@ -165,7 +138,7 @@ const Home = () => {
         }
 
         {
-          (Restaurants && Restaurants?.length != 0) &&
+          (FilteredRestaurants && FilteredRestaurants?.length != 0) &&
           <>
             <section id='restaurants'>
               <h2 className='font-GrotBlack text-2xl pb-5 pt-5'>Restaurants with online food delivery in Kanchrapara</h2>
@@ -181,8 +154,10 @@ const Home = () => {
 
               <div className='flex gap-8 flex-wrap mt-10'>
                 {
-                  Restaurants?.map((res) => (
-                    <RestaurantCard key={res?.info?.id} info={res?.info} />
+                  AllRestaurants?.map((res) => (
+                    <Link key={res?.info?.id} to={`/restaurants/${res?.info?.id}`}>
+                      <RestaurantCard info={res?.info} />
+                    </Link>
                   ))
                 }
               </div>

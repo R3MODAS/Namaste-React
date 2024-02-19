@@ -32,3 +32,14 @@ Every code is in services(different places) and everyone is interconnected to ea
 
 How do the services talk to each other ?
 - They are hosted in different PORT Numbers and those ports are mapped to domain names and routes are made /api, /sms and by visiting the routes they can talk to each other.
+
+## Routing
+Two types of routing are used: Client side routing and Server side routing
+
+- Client side routing is done on client side (Browser) and the navigation between the pages/components are done entirely on client side and the page is not reloaded again and again as they are just interchanged when the path changes.
+
+- Server side routing is done on server side (Nodejs/Express) and the navigation between the pages are done entirely on server side as the page is loaded (which comes from server) when the path changes.
+
+- In Client side, Initial page load is faster as the required HTML, CSS, JS are loaded initially but it is bad for SEO as search engine crawlers may not understand javascript 
+
+- In Server side, Initial page load is slower as all the HTML, CSS, JS are fully rendered on server side and then sent back as a response to client so it is good for SEO as search engine crawlers can understand the HTML.
