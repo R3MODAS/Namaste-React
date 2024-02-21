@@ -1,25 +1,36 @@
 import { Link } from 'react-router-dom'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSidebar } from '../utils/toggleSlice';
+import { LOGO_URL } from '../utils/constants';
 
-const Header = (props) => {
-    const {toggleSidebar, setToggleSidebar} = props;
+const Header = () => {
+    const dispatch = useDispatch()
+    const userLocation = useSelector(store => store.location.userLocation)
 
     const handleSidebar = () => {
-        setToggleSidebar(!toggleSidebar)
+        dispatch(toggleSidebar())
+    }
+
+    const truncateStr = (str) => {
+        return str.length > 35 ? str.slice(0, 35) + "..." : str
     }
 
     return (
         <header className='shadow-md w-full fixed left-0 top-0 right-0 h-20 z-10 px-5 text-color-1 bg-white'>
             <div className='flex justify-between items-center h-full container mx-auto'>
-                <div className='flex items-center gap-8'>
+                <div className='flex items-center gap-5'>
                     <Link to="/">
-                        <img src="/assets/swiggy-logo.png" alt="logo" className='h-12' />
+                        <img src={LOGO_URL} alt="logo" className='h-14 rounded-full border border-black' />
                     </Link>
-                    <button onClick={handleSidebar} type='button' className='flex items-center font-ProximaNovaBold gap-2 text-sm'>
-                        <span className='custom-underline relative hover:text-color-2'>
+                    <button onClick={handleSidebar} type='button' className='flex items-center gap-2 group sidebar-btn'>
+                        <span className='custom-underline relative font-ProximaNovaBold text-sm group-hover:text-color-2'>
                             Other
                         </span>
+                        {
+                            userLocation ? <span className='block text-[#686b78] text-sm font-ProximaNovaThin group-hover:text-color-5'>{truncateStr(userLocation?.address)}</span> : <></>
+                        }
                         <span className='text-color-2 text-xl'>
                             <IoIosArrowDown />
                         </span>

@@ -1,10 +1,13 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './css/index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Checkout, Error, Home } from './pages'
 import RestaurantMenu from './components/RestaurantMenu'
+import { Suspense } from 'react'
+import ShimmerHome from './components/ShimmerHome'
+import { Provider } from 'react-redux'
+import store from './utils/store'
 
 const appRouter = createBrowserRouter([
   {
@@ -13,7 +16,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Suspense fallback={<ShimmerHome />}><Home /></Suspense>
       },
       {
         path: "/checkout",
@@ -28,4 +31,8 @@ const appRouter = createBrowserRouter([
   },
 ])
 
-ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={appRouter} />)
+ReactDOM.createRoot(document.getElementById('root'))
+  .render(
+    <Provider store={store}>
+      <RouterProvider router={appRouter} />
+    </Provider>)

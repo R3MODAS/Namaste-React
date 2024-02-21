@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { RESTAURANT_MENU_API } from '../utils/constants';
+import { useSelector } from 'react-redux';
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [RestaurantInfo, setRestaurantInfo] = useState({});
   const [RestaurantMenu, setRestaurantMenu] = useState([])
+
+  const userLocation = useSelector(store => store.location.userLocation)
+  const lat = userLocation?.lat ? userLocation?.lat : 22.51800
+  const lng = userLocation?.lng ? userLocation?.lng : 88.38320
 
   useEffect(() => {
     fetchRestaurantMenu();
@@ -13,7 +17,7 @@ const RestaurantMenu = () => {
 
   const fetchRestaurantMenu = async () => {
     try {
-      const response = await fetch(`${RESTAURANT_MENU_API}/${resId}`)
+      const response = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`)
       if (!response.ok) {
         const err = response.status;
         throw new Error(err)
@@ -32,7 +36,9 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div>RestaurantMenu</div>
+      <div className="container mx-auto mt-24 mb-10">
+          <h1>Hello</h1>
+      </div> 
   )
 }
 

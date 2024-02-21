@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { RESTAURANT_API} from "../utils/constants"
+import { useSelector } from "react-redux";
 
 const useRestaurant = () => {
     const [ImageCarousel, setImageCarousel] = useState([]);
     const [TopChains, setTopChains] = useState([]);
     const [AllRestaurants, setAllRestaurants] = useState([]);
     const [FilteredRestaurants, setFilteredRestaurants] = useState([])
+    const userLocation = useSelector(store => store.location.userLocation);
+
+    const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
+    const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
 
     useEffect(() => {
         fetchRestaurantData()
@@ -13,7 +17,7 @@ const useRestaurant = () => {
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(RESTAURANT_API);
+            const response = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
