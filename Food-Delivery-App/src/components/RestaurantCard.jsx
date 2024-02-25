@@ -1,4 +1,3 @@
-import React from 'react'
 import { RES_IMG, RES_IMG_GRAY } from '../utils/constants';
 
 const RestaurantCard = ({ info }) => {
@@ -19,9 +18,9 @@ const RestaurantCard = ({ info }) => {
             {
                 opened ?
                     <>
-                        <div className='flex flex-col gap-3 transition-all cursor-pointer hover:scale-95'>
-                            <div className='w-80 h-56'>
-                                <img src={RES_IMG + cloudinaryImageId} alt="top-chain" className='rounded-xl w-full h-full object-cover' />
+                        <div className='flex flex-col gap-3 cursor-pointer'>
+                            <div className='w-80 h-56 card relative rounded-xl'>
+                                <img src={RES_IMG + cloudinaryImageId} alt="res-img" className='rounded-xl w-full h-full object-cover' />
                             </div>
                             <div className='ml-3'>
                                 <h2 className='font-GrotBold text-lg tracking-tighter text-color-3'>{truncateResName(name)}</h2>
@@ -35,9 +34,9 @@ const RestaurantCard = ({ info }) => {
                         </div>
                     </> :
                     <>
-                        <div className='flex flex-col gap-3 transition-all cursor-pointer hover:scale-95'>
-                            <div className='w-80 h-56'>
-                                <img src={RES_IMG_GRAY + cloudinaryImageId} alt="top-chain" className='rounded-xl w-full h-full object-cover' />
+                        <div className='flex flex-col gap-3 cursor-pointer'>
+                            <div className='w-80 h-56 card relative rounded-xl'>
+                                <img src={RES_IMG_GRAY + cloudinaryImageId} alt="res-img" className='rounded-xl w-full h-full object-cover' />
                             </div>
                             <div className='ml-3'>
                                 <h2 className='font-GrotBold text-lg tracking-tighter text-color-3'>{truncateResName(name)}</h2>
@@ -57,3 +56,17 @@ const RestaurantCard = ({ info }) => {
 }
 
 export default RestaurantCard
+
+export const withOfferLabel = (RestaurantCard) => {
+    return (props) => {
+        const { info } = props;
+        const { aggregatedDiscountInfoV3, aggregatedDiscountInfoV2 } = info;
+
+        return (
+            <>
+                <RestaurantCard {...props} />
+                <label className='absolute bottom-28 left-3 text-white uppercase font-ProximaNovaBlack tracking-tighter text-[22px] label'>{aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}</label>
+            </>
+        )
+    }
+}

@@ -12,21 +12,25 @@ export default {
         'color-3':'rgba(2, 6, 12, 0.75)',
         'color-4':'rgba(2, 6, 12, 0.6)',
         'color-5':'#93959f',
-        'color-6':'#535665'
+        'color-6':'#535665',
+        'color-7':'#e9e9eb',
+        'color-8':'#7e808c',
+        'color-9':'#3e4152',
+        'color-10':'rgba(40, 44, 63, .45)'
       },
-      fontFamily: {
-        "GrotThin": ["Grot Thin"],
-        "GrotReg": ["Grot Reg"],
-        "GrotMed": ["Grot Med"],
-        "GrotBold": ["Grot Bold"],
-        "GrotBlack": ["Grot Black"],
-        "ProximaNovaThin": ["Proxi Thin"],
-        "ProximaNovaMed": ["Proxi Med"],
-        "ProximaNovaSemiBold": ["Proxi Semi"],
-        "ProximaNovaBold": ["Proxi Bold"],
-        "ProximaNovaBlack": ["Proxi Black"],
-      }
     },
+    fontFamily: {
+      "GrotThin": ["Grotesque Pro Thin"],
+      "GrotReg": ["Grotesque Pro Reg"],
+      "GrotMed": ["Grotesque Pro Med"],
+      "GrotBold": ["Grotesque Pro Bold"],
+      "GrotBlack": ["Grotesque Pro Black"],
+      "ProximaNovaThin": ["ProximaNova Condensed Thin"],
+      "ProximaNovaMed": ["ProximaNova Condensed Med"],
+      "ProximaNovaSemiBold": ["ProximaNova Condensed SemiBold"],
+      "ProximaNovaBold": ["ProximaNova Condensed Bold"],
+      "ProximaNovaBlack": ["ProximaNova Condensed Black"],
+    }
   },
   plugins: [
     require('tailwind-scrollbar-hide')
