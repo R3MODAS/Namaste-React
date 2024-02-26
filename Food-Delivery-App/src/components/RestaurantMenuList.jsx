@@ -1,7 +1,13 @@
-import React from 'react'
 import { RES_MENU_IMG } from '../utils/constants'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../utils/cartSlice';
 
 const RestaurantMenuList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item))
+  }
 
   return (
     <div className='accordion-body'>
@@ -26,7 +32,7 @@ const RestaurantMenuList = ({ items }) => {
                   <img src={`${RES_MENU_IMG}${item?.card?.info?.imageId}`} alt="menu-img" className='rounded-md w-[118px] h-24 object-cover' />
                 </button>
               }
-              <button className='absolute -bottom-2 left-1/2 -translate-x-1/2 z-[1] w-24 h-9 shadow-md shadow-color-7 bg-white text-center inline-block rounded text-[#60b246] text-sm font-ProximaNovaSemiBold uppercase'>Add</button>
+              <button onClick={() => handleAddItem(item)} className='absolute -bottom-2 left-1/2 -translate-x-1/2 z-[1] w-24 h-9 shadow-md shadow-color-7 bg-white text-center inline-block rounded text-[#60b246] text-sm font-ProximaNovaSemiBold uppercase'>Add</button>
             </div>
           </div>
         ))

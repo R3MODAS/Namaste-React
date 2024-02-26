@@ -8,6 +8,7 @@ import { Suspense } from 'react'
 import ShimmerHome from './components/ShimmerHome'
 import { Provider } from 'react-redux'
 import store from './utils/store'
+import ShimmerMenu from './components/ShimmerMenu'
 
 const appRouter = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />
+        element: <Suspense fallback={<ShimmerMenu />}><RestaurantMenu /></Suspense>
       }
     ],
     errorElement: <Error />

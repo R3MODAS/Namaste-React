@@ -8,6 +8,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const [RestaurantInfo, setRestaurantInfo, RestaurantMenu, setRestaurantMenu] = useRestaurantMenu(resId);
   const { name, city, cuisines, avgRating, areaName, feeDetails, isOpen, totalRatingsString, sla, costForTwoMessage } = RestaurantInfo;
+
   const [ShowIndex, setShowIndex] = useState(0);
 
   const handleShowItem = (CurrentIndex) => {
@@ -24,7 +25,7 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div className="container mx-auto mt-24 mb-10 w-1/2">
+    <div className="mx-auto mt-24 mb-10 w-1/2">
       <>
         <div className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse text-color-5">
