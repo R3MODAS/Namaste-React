@@ -1,13 +1,31 @@
 import { RES_MENU_IMG } from '../utils/constants'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '../utils/cartSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RestaurantMenuList = ({ items }) => {
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.cartItems)
 
   const handleAddItem = (item) => {
-    dispatch(addItem(item))
-  }
+    const isItemInCart = cartItems.some((cartItem) => cartItem?.card?.info?.id === item?.card?.info?.id);
+
+    if (isItemInCart) {
+      toast.error('Already added to the Cart', {
+        className: 'font-ProximaNovaSemiBold',
+        position: 'top-center',
+        duration: 1500,
+      });
+    } else {
+      toast.success('Added to the Cart', {
+        className: 'font-ProximaNovaSemiBold',
+        position: 'top-center',
+        duration: 1500,
+      });
+      dispatch(addItem(item));
+    }
+  };
+
 
   return (
     <div className='accordion-body'>
@@ -37,6 +55,7 @@ const RestaurantMenuList = ({ items }) => {
           </div>
         ))
       }
+      <Toaster />
     </div>
   )
 }
