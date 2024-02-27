@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 const Home = () => {
   const [ImageCarousel, setImageCarousel, TopChains, setTopChains, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants] = useRestaurant();
 
-  const userLocation = useSelector(store => store.location.userLocation);
+  const userLocation = useSelector(state => state.location.userLocation);
 
   const RestaurantCardwithOffer = withOfferLabel(RestaurantCard)
 
@@ -137,9 +137,9 @@ const Home = () => {
         (AllRestaurants && AllRestaurants?.length != 0) &&
         <>
           <section id='restaurants'>
-            <h2 className='font-GrotBlack text-2xl pb-5 pt-5'>Restaurants with online food delivery in {userLocation?.city}</h2>
+            <h2 className='font-GrotBlack text-2xl pb-5 pt-5 2xl:text-start text-center'>Restaurants with online food delivery in {userLocation?.city}</h2>
 
-            <div className="filter-btns flex gap-3" onClick={handleActive}>
+            <div className="filter-btns flex gap-3 2xl:justify-start justify-center md:flex-nowrap flex-wrap" onClick={handleActive}>
               <button className='filter-btn font-GrotMed text-color-3 text-sm tracking-tight' onClick={handleFastDelivery}>
                 Fast Delivery
                 <span className='text-lg ml-1 mb-[2px] hidden' onClick={() => window.location.reload()}>
@@ -178,7 +178,7 @@ const Home = () => {
               </button>
             </div>
 
-            <div className='flex gap-8 flex-wrap mt-10'>
+            <div className='flex gap-8 flex-wrap mt-10 2xl:justify-start justify-center'>
               {
                 FilteredRestaurants?.map((res) => (
                   <Link className='relative transition-all hover:scale-95' key={res?.info?.id} to={`/restaurants/${res?.info?.id}`}>

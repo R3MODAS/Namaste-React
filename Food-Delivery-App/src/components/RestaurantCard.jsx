@@ -65,7 +65,12 @@ export const withOfferLabel = (RestaurantCard) => {
         return (
             <>
                 <RestaurantCard {...props} />
-                <label className='absolute bottom-28 left-3 text-white uppercase font-ProximaNovaBlack tracking-tighter text-[22px] label'>{aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}</label>
+                {
+                    aggregatedDiscountInfoV2 && <label className='absolute bottom-28 left-3 text-white uppercase font-ProximaNovaBlack tracking-tighter text-[22px] label'>{aggregatedDiscountInfoV2?.header}</label>
+                }
+                {
+                    aggregatedDiscountInfoV3 && <label className='absolute bottom-28 left-3 text-white uppercase font-ProximaNovaBlack tracking-tighter text-[22px] label'>{aggregatedDiscountInfoV3?.header} {aggregatedDiscountInfoV3?.subHeader}</label>
+                }
             </>
         )
     }

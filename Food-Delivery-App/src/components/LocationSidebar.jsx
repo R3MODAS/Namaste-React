@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleSidebar } from '../utils/toggleSlice'
 import { getLocation } from '../utils/locationSlice'
 
-const Sidebar = () => {
+const LocationSidebar = () => {
     const [Locations, setLocations] = useState([])
     const [SearchText, setSearchText] = useState("")
 
     const dispatch = useDispatch()
-    const isSidebarOpen = useSelector(store => store.toggle.isSidebarOpen)
+    const isSidebarOpen = useSelector(state => state.toggle.isSidebarOpen)
 
     const handleSearchLocation = async (e) => {
         try {
@@ -103,4 +103,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default LocationSidebar

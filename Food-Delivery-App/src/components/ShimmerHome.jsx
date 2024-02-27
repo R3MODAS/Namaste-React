@@ -1,11 +1,8 @@
 import "../css/shimmer.css"
-import Header from "./Header"
 
 const ShimmerHome = () => {
   return (
     <>
-      <Header />
-
       <div className="mt-20">
 
         <div className="carousel-loading h-80 flex justify-center flex-col gap-7">

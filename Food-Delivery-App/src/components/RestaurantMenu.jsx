@@ -25,7 +25,7 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div className="mx-auto mt-24 mb-10 w-1/2">
+    <div className="mx-auto mt-24 mb-10 2xl:w-1/2 md:w-4/5 sm:px-7 px-2">
       <>
         <div className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse text-color-5">
@@ -64,7 +64,7 @@ const RestaurantMenu = () => {
             </div>
             {
               avgRating && <div>
-                <button className='max-w-[100px] p-2 text-center border border-color-7 rounded-md cursor-pointer'>
+                <button className='sm:max-w-[100px] sm:w-auto w-[100px] p-2 text-center border border-color-7 rounded-md cursor-pointer'>
                   <div className='text-[#3d9b6d] pb-[10px] border border-b-color-7 border-l-0 border-t-0 border-r-0 mb-2 font-ProximaNovaSemiBold flex justify-center items-center gap-1'>
                     <span><img src="/assets/star-icon.png" alt="star-icon" /></span>
                     <span className='text-sm'>{avgRating}</span>
@@ -78,7 +78,7 @@ const RestaurantMenu = () => {
           {
             feeDetails?.message && <div className='flex justify-start items-center gap-2 text-color-8 mt-3 mb-5'>
               <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_18,h_18/${feeDetails?.icon}`} alt="icon" />
-              <p className='flex-1 text-sm font-ProximaNovaThin'>{feeDetails?.message}</p>
+              <p className='2xl:flex-1 text-sm font-ProximaNovaThin sm:w-1/2'>{feeDetails?.message}</p>
             </div>
           }
 
@@ -91,7 +91,7 @@ const RestaurantMenu = () => {
               {
                 RestaurantMenu?.map((category, index) => (
                   <li key={category?.card?.card?.title} className='cursor-pointer'>
-                    <RestaurantCategory data={category?.card?.card} index={index} ShowItem={index === ShowIndex && true} handleShowItem={() => handleShowItem(index)} />
+                    <RestaurantCategory data={category?.card?.card} ShowItem={index === ShowIndex && true} handleShowItem={() => handleShowItem(index)} />
                   </li>
                 ))
               }

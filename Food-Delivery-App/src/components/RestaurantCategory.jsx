@@ -14,7 +14,7 @@ const RestaurantCategory = ({ data, ShowItem, handleShowItem }) => {
         <h2 className='text-color-9 sm:text-lg font-ProximaNovaBold'>{data?.title} ({data?.itemCards?.length})</h2>
         <div className='text-xl text-color-9'>
           {
-            <IoIosArrowDown />
+            ShowItem ? <IoIosArrowUp /> : <IoIosArrowDown />
           }
         </div>
       </div>

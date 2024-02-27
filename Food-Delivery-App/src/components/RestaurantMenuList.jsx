@@ -32,7 +32,7 @@ const RestaurantMenuList = ({ items }) => {
       {
         items?.map((item) => (
           <div key={item?.card?.info?.id} className='item flex items-start justify-between pb-8'>
-            <div>
+            <div className='md:w-auto w-3/5'>
               {
                 item?.card?.info?.itemAttribute?.vegClassifier === 'VEG' ? <img src="/assets/veg.png" alt="veg" /> : <img src='/assets/nonveg.png' alt='non-veg'></img>
               }
@@ -41,7 +41,7 @@ const RestaurantMenuList = ({ items }) => {
                 item?.card?.info?.price ? <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.price / 100}</span> : <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.defaultPrice / 100}</span>
               }
               {
-                item?.card?.info?.description && <p className='text-color-10 mt-3 tracking-tight font-ProximaNovaThin text-sm w-3/4'>{item?.card?.info?.description}</p>
+                item?.card?.info?.description && <p className='text-color-10 mt-3 tracking-tight font-ProximaNovaThin text-sm md:w-3/4'>{item?.card?.info?.description}</p>
               }
             </div>
             <div className='relative w-[118px] h-24'>
