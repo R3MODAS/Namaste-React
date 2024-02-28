@@ -3,15 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const toggleSlice = createSlice({
     name: "toggle",
     initialState: {
-        isSidebarOpen: false
+        isLocationSidebarOpen: false,
+        isLoginSidebarOpen: false
     },
     reducers: {
-        toggleSidebar: (state) => {
-            state.isSidebarOpen = !state.isSidebarOpen
+        toggleLocationSidebar: (state) => {
+            state.isLocationSidebarOpen = !state.isLocationSidebarOpen
+        },
+        toggleLoginSidebar: (state) => {
+            state.isLoginSidebarOpen = !state.isLoginSidebarOpen
         }
     }
 })
 
 
-export const {toggleSidebar} = toggleSlice.actions
+export const {toggleLocationSidebar, toggleLoginSidebar} = toggleSlice.actions
 export default toggleSlice.reducer;

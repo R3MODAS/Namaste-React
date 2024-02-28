@@ -66,7 +66,7 @@ const Checkout = () => {
                         </div>
                       </div>
                       <div>
-                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_147,h_140/Image-login_btpq7r" alt="" />
+                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_147,h_140/Image-login_btpq7r" alt="img" />
                       </div>
                       <div className="absolute -left-8 bg-color-1 text-white w-10 h-10 flex items-center justify-center shadow-md">
                         <FaRegUser className="text-xl" />

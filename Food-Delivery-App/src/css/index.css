@@ -164,3 +164,7 @@
     margin-top: 16px;
     font-weight: 400;
 }
+
+.react-tel-input .form-control{
+    @apply py-7 font-ProximaNovaMed w-full text-base placeholder:text-color-5;
+}

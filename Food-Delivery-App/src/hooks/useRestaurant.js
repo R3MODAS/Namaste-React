@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { CORSPROXY } from "../utils/constants";
 
 const useRestaurant = () => {
     const [ImageCarousel, setImageCarousel] = useState([]);
@@ -11,13 +12,15 @@ const useRestaurant = () => {
     const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
     const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
 
+    const RES_API = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+
     useEffect(() => {
         fetchRestaurantData()
     }, [])
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+            const response = await fetch(CORSPROXY + encodeURIComponent(RES_API));
             if (!response.ok) {
                 const err = response.status;
                 throw new Error(err)
