@@ -7,6 +7,7 @@ import { IoClose } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { clearCart, deleteItem } from "../utils/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
+import { RES_MENU_IMG } from '../utils/constants';
 
 const Checkout = () => {
   const dispatch = useDispatch()
@@ -45,7 +46,62 @@ const Checkout = () => {
             </div>
           </div>
           :
-          <div className='bg-[#e9ecee] w-full min-h-screen pt-28'>
+          <>
+            <div className='mx-auto mt-24 mb-10 2xl:w-1/2 md:w-4/5'>
+              <div className="checkout-container flex items-start gap-5">
+                <div>
+                  {
+                    cartItems?.map((item) => (
+                      <div key={item?.card?.info?.id} className='item flex items-start justify-between pb-8'>
+                        <div className='md:w-auto w-3/5'>
+                          {
+                            item?.card?.info?.itemAttribute?.vegClassifier === 'VEG' ? <img src="/assets/veg.png" alt="veg" /> : <img src='/assets/nonveg.png' alt='non-veg'></img>
+                          }
+                          <h4 className='text-base text-color-9 font-ProximaNovaMed'>{item?.card?.info?.name}</h4>
+                          {
+                            item?.card?.info?.price ? <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.price / 100}</span> : <span className='rupee text-color-9 text-sm font-ProximaNovaMed'>{item?.card?.info?.defaultPrice / 100}</span>
+                          }
+                          {
+                            item?.card?.info?.description && <p className='text-color-10 mt-3 tracking-tight font-ProximaNovaThin text-sm md:w-3/4'>{item?.card?.info?.description}</p>
+                          }
+                        </div>
+                        <div className='relative w-[118px] h-24'>
+                          {
+                            item?.card?.info?.imageId && <button className='cursor-pointer w-[118px] h-24 rounded-md'>
+                              <img src={`${RES_MENU_IMG}${item?.card?.info?.imageId}`} alt="menu-img" className='rounded-md w-[118px] h-24 object-cover' />
+                            </button>
+                          }
+                          <button onClick={() => handleDeleteItem(item)} className='absolute -bottom-2 left-1/2 -translate-x-1/2 z-[1] w-24 h-9 shadow-md shadow-color-7 bg-red-500 text-white text-center inline-block rounded text-sm font-ProximaNovaSemiBold uppercase'>Remove</button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+
+                <div>
+                  <h3 className='font-ProximaNovaSemiBold text-2xl mb-2'>Summary</h3>
+                  <div className="flex justify-between bg-color-11 text-white py-2 px-2">
+                    <div>
+                      <h3 className="text-base font-ProximaNovaSemiBold">Total Price</h3>
+                    </div>
+                    <div>
+                      <span className="rupee font-ProximaNovaSemiBold">{totalPrice}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 mt-2">
+                    <button className="bg-color-2 text-white font-ProximaNovaSemiBold w-28 py-2 px-2">Place Order</button>
+                    <button onClick={handleClearAll} className="bg-red-500 text-white font-ProximaNovaSemiBold w-28 py-2 px-2">Clear All</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+
+      }
+      <Toaster />
+
+
+      {/* <div className='bg-[#e9ecee] w-full min-h-screen pt-28'>
             <div className='container mx-auto w-2/3'>
               <div className='flex'>
                 <div className='flex-1 mr-8'>
@@ -123,12 +179,11 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-          </div>
-      }
-      <Toaster />
+          </div> */}
     </>
 
   )
 }
 
 export default Checkout
+

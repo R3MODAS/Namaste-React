@@ -9,6 +9,7 @@ import ShimmerHome from './components/ShimmerHome'
 import { Provider } from 'react-redux'
 import store from './utils/store'
 import ShimmerMenu from './components/ShimmerMenu'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const appRouter = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />
+        element: <ProtectedRoute><Checkout /></ProtectedRoute>
       },
       {
         path: "/restaurants/:resId",

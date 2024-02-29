@@ -6,23 +6,26 @@ import toast, { Toaster } from 'react-hot-toast';
 const RestaurantMenuList = ({ items }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems)
+  const userDetails = useSelector(state => state.user.userDetails)
 
   const handleAddItem = (item) => {
     const isItemInCart = cartItems.some((cartItem) => cartItem?.card?.info?.id === item?.card?.info?.id);
 
     if (isItemInCart) {
-      toast.error('Already added to the Cart', {
-        className: 'font-ProximaNovaSemiBold',
-        position: 'top-center',
-        duration: 1500,
-      });
+      if (userDetails) {
+        toast.error('Already added to the Cart');
+      }
+      else{
+        toast.error('Please Login first')
+      }
     } else {
-      toast.success('Added to the Cart', {
-        className: 'font-ProximaNovaSemiBold',
-        position: 'top-center',
-        duration: 1500,
-      });
-      dispatch(addItem(item));
+      if (userDetails) {
+        toast.success('Added to the Cart');
+        dispatch(addItem(item));
+      }
+      else {
+        toast.error('Please Login first');
+      }
     }
   };
 
@@ -55,7 +58,11 @@ const RestaurantMenuList = ({ items }) => {
           </div>
         ))
       }
-      <Toaster />
+      <Toaster toastOptions={{
+        className: 'font-ProximaNovaSemiBold',
+        position: 'top-center',
+        duration: 1500,
+      }} />
     </div>
   )
 }
