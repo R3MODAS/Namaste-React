@@ -61,7 +61,7 @@ const LocationSidebar = () => {
 
     return (
         <>
-            <div className={`location-sidebar fixed top-0 h-full overflow-y-scroll bg-white transition-all duration-500 z-20 px-20 py-10 flex flex-col w-[500px] ${isLocationSidebarOpen ? "translate-x-0" : " -translate-x-full"}`}>
+            <div className={`location-sidebar fixed top-0 h-full overflow-y-scroll bg-white transition-all duration-500 z-20 sm:px-20 px-5 py-5 w-full sm:py-10 flex flex-col sm:w-[500px] ${isLocationSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <button className='text-3xl mb-5' onClick={handleCloseSidebar}>
                     <IoIosCloseCircleOutline />
                 </button>
@@ -78,7 +78,7 @@ const LocationSidebar = () => {
                         {
                             SearchText && Locations?.map((item) => (
                                 <li onClick={() => handleUserLocation(item?.place_id)} key={item?.place_id} className='cursor-pointer relative'>
-                                    <div className='p-6 flex location'>
+                                    <div className='md:p-6 py-4 flex location'>
                                         <div className='text-lg text-color-6 w-8 text-left pt-1 pr-4'>
                                             <GoLocation />
                                         </div>
@@ -92,7 +92,6 @@ const LocationSidebar = () => {
                         }
                     </ul>
                 </div>
-
             </div>
 
             <div className={`location-sidebar-overlay ${isLocationSidebarOpen ? "fixed" : "hidden"} z-10 top-0 left-0 right-0 bottom-0 bg-color-1 opacity-[0.7] overflow-hidden`}></div>

@@ -165,6 +165,6 @@
     font-weight: 400;
 }
 
-.react-tel-input .form-control{
-    @apply py-7 font-ProximaNovaMed w-full text-base placeholder:text-color-5;
+.checkout-btns button{
+  @apply text-white font-ProximaNovaSemiBold w-36 py-3 px-3 md:text-lg;
 }
