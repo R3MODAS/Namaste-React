@@ -72,7 +72,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .sidebar-btn:hover .custom-underline::after {
     background-color: #fc8019;
 }
