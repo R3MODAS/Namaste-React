@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 // const h1 = React.createElement("h1",{}, "Chapter 03 - Laying the Foundation 🚀");
 
 //! Welcome to JSX
-// const h1 = <h1>Chapter 03 - Laying the Foundation 🚀</h1>;
+// const heading = React.createElement("h1", {className: "heading"}, "Introduction to JSX")
 // const root = ReactDOM.createRoot(document.querySelector("#root"));
-// root.render(h1)
+// root.render(heading)
 
 //! React Component -> Class Based and Functional Component
 

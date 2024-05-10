@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "this is igniting our app",
   "scripts": {
-    "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest"
   },
   "author": "Remo",
   "license": "ISC",

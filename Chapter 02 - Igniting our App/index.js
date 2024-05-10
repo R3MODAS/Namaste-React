@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
-const h1 = React.createElement("h1",{},"Chapter 02 - Igniting our App 🚀")
-const root = ReactDOM.createRoot(document.querySelector("#root"));
-root.render(h1)
+const heading = React.createElement("h1", {id: "heading"}, "Chapter 02 - Igniting our App 🚀")
+const root = ReactDOM.createRoot(document.querySelector("#root"))
+root.render(heading)
 
 //! Conclusion
 {/* 
@@ -22,4 +22,8 @@ root.render(h1)
     7) Npm knows which packages are required for our project by checking our package.json as it contains the packages used in the project so we just need to install those packages in our project
 
     8) We always push package.json and package-lock.json in our github but not node_modules as package.json and package-lock.json contains the information about the project and also the packages used in a project so we can definitely install the packages and generate a brand new node_modules whenever we need
+
+    9)Parcel is a beast for managing for so many things such as dev build, local server, caching the files for faster builds, HMR (Hot Module Replacement), file watching Algorithm (written in C++), image optimization, minification, bundling, consistent hashing, differential bundling, code splitting, diagnostic and error handling, tree shaking and many more
+
+    10)npx parcel index.html to run the file as npx is used to execute any package and npm is used to install any package
 */}
