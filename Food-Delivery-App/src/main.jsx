@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './styles/index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Checkout, Home, RestaurantMenu } from './pages'
-import Error from './components/Error.jsx'
+import Error from './components/Common/Error.jsx'
 
 const appRouter = createBrowserRouter([
   {

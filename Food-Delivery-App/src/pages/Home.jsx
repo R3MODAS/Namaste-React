@@ -8,8 +8,11 @@ import {
 } from "@/components/ui/carousel"
 import { CAROUSEL_IMG } from "@/utils/constants";
 import ShimmerHome from '@/components/Shimmer/ShimmerHome';
-import RestaurantCard from '@/components/RestaurantCard';
+import RestaurantCard from '@/components/Home/RestaurantCard';
 import { Link } from 'react-router-dom';
+import FilterButtons from '@/components/Home/FilterButtons';
+import TopChainCard from '@/components/Home/TopChainCard';
+import { useEffect } from 'react';
 
 const Home = () => {
   const [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants] = useRestaurant()
@@ -19,7 +22,7 @@ const Home = () => {
   }
 
   return (
-    <div className='my-24 container mx-auto'>
+    <div className='mt-24 mb-10 container mx-auto'>
       {/* Carousel Section */}
       {
         (CarouselData && setCarouselData.length !== 0) &&
@@ -43,7 +46,6 @@ const Home = () => {
             </Carousel>
           </section>
 
-
           <div className='divider'></div>
         </>
       }
@@ -54,7 +56,7 @@ const Home = () => {
         (TopChainRestaurants && TopChainRestaurants.length !== 0) &&
         <>
           <section>
-            <h2 className="font-SfCompactBold text-2xl">Top Restaurants in Kolkata</h2>
+            <h2 className="font-SfCompactBold text-2xl">Top Restaurants in Bangalore</h2>
             <Carousel className="relative">
               <div className="absolute right-5 -top-4 z-[1]">
                 <CarouselPrevious className="disabled:bg-color-2/80 text-color-1 -left-20 bg-color-2 hover:bg-color-2/80" />
@@ -64,7 +66,9 @@ const Home = () => {
                 {
                   TopChainRestaurants?.map((card) => (
                     <Link key={card?.info?.id} to={`/restaurants/${card?.info?.id}`}>
-                      <RestaurantCard info={card?.info} />
+                      <CarouselItem className="basis-1/5">
+                        <TopChainCard info={card?.info} />
+                      </CarouselItem>
                     </Link>
                   ))
                 }
@@ -73,6 +77,27 @@ const Home = () => {
           </section>
 
           <div className="divider"></div>
+        </>
+      }
+
+      {/* All Restaurants Section */}
+      {
+        (AllRestaurants && AllRestaurants.length !== 0) &&
+        <>
+          <section>
+            <h2 className="font-SfCompactBold text-2xl">Restaurants with Online Food Delivery in Bangalore</h2>
+            <FilterButtons />
+            <div className='restaurant-container flex justify-start items-center flex-wrap gap-8 mt-10'>
+              {
+                AllRestaurants?.map((res) => (
+                  <Link to={`/restaurants/${res?.info?.id}`} key={res?.info?.id}>
+                    <RestaurantCard info={res?.info} />
+                  </Link>
+                ))
+              }
+            </div>
+          </section>
+
         </>
       }
     </div>

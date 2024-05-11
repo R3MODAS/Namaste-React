@@ -26,11 +26,12 @@ module.exports = {
       },
       colors: {
         'color-1': '#1C1B1F',
-        'color-2': '#00C874'
+        'color-2': '#00C874',
+        'color-3': '#A09CAB'
       }
     },
     fontFamily: {
-      "SfProRef": ["Sf Pro Reg"],
+      "SfProReg": ["Sf Pro Reg"],
       "SfProMed": ["Sf Pro Med"],
       "SfProBold": ["Sf Pro Bold"],
       "SfCompactRef": ["Sf Compact Reg"],

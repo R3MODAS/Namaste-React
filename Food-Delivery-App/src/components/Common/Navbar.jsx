@@ -10,7 +10,7 @@ const Navbar = () => {
           <Link to={"/"}><img className='h-14' src="assets/logo.png" alt="" /></Link>
 
           <button className='flex items-center gap-x-1 text-color-1'>
-            <span className='font-SfProMed'>Kolkata</span>
+            <span className='font-SfProMed'>Bangalore</span>
             <IoLocationOutline className='text-lg' />
           </button>
         </div>
