@@ -1,14 +1,10 @@
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Checkout, Error, Home } from './pages'
-import RestaurantMenu from './components/RestaurantMenu'
-import { Suspense } from 'react'
-import ShimmerHome from './components/Shimmer/ShimmerHome'
-import ShimmerMenu from './components/Shimmer/ShimmerMenu'
-import { Provider } from 'react-redux'
-import store from './utils/store'
-import './css/index.css'
+import App from './App.jsx'
+import './styles/index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Checkout, Home, RestaurantMenu } from './pages'
+import Error from './components/Error.jsx'
 
 const appRouter = createBrowserRouter([
   {
@@ -17,23 +13,21 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Suspense fallback={<ShimmerHome />}><Home /></Suspense>
+        element: <Home />
       },
       {
         path: "/checkout",
         element: <Checkout />
       },
       {
-        path: "/restaurants/:resId",
-        element: <Suspense fallback={<ShimmerMenu />}><RestaurantMenu /></Suspense>
+        path: "/restaurants/:id",
+        element: <RestaurantMenu />
       }
     ],
     errorElement: <Error />
-  },
+  }
 ])
 
-ReactDOM.createRoot(document.getElementById('root'))
-  .render(
-    <Provider store={store}>
-      <RouterProvider router={appRouter} />
-    </Provider>)
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={appRouter} />
+)

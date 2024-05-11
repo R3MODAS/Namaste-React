@@ -1,16 +1,12 @@
 import { Outlet } from "react-router-dom"
-import Header from "./components/Header"
-import LocationSidebar from "./components/Sidebar/LocationSidebar"
+import Navbar from "./components/Navbar"
 import ScrollToTop from "./components/ScrollToTop"
-import LoginSidebar from "./components/Sidebar/LoginSidebar"
 
-const App = () => {
+function App() {
   return (
     <>
-      <Header />
+      <Navbar />
       <Outlet />
-      <LocationSidebar />
-      <LoginSidebar />
       <ScrollToTop />
     </>
   )

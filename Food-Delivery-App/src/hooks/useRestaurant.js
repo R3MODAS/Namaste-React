@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
-const useRestaurant = () => {
-    const [ImageCarousel, setImageCarousel] = useState([]);
-    const [TopChains, setTopChains] = useState([]);
-    const [AllRestaurants, setAllRestaurants] = useState([]);
-    const [FilteredRestaurants, setFilteredRestaurants] = useState([])
-    const userLocation = useSelector(store => store.location.userLocation);
-
-    const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
-    const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
+export const useRestaurant = () => {
+    const [CarouselData, setCarouselData] = useState([])
+    const [TopChainRestaurants, setTopChainRestaurants] = useState([])
+    const [AllRestaurants, setAllRestaurants] = useState([])
 
     useEffect(() => {
         fetchRestaurantData()
@@ -17,32 +11,23 @@ const useRestaurant = () => {
 
     const fetchRestaurantData = async () => {
         try {
-            const response = await fetch(import.meta.env.VITE_BASE_URL + `api/proxy/swiggy/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
-            if (!response.ok) {
-                const err = response.status;
-                throw new Error(err)
+            const res = await fetch(import.meta.env.VITE_FOOD_APP_BASE_URL + `/api/proxy/swiggy/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
+            if (!res.ok) {
+                const err = res.status
+                throw new Error(err.message)
             }
             else {
-                const json = await response.json();
+                const json = await res.json()
+                setCarouselData(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("whats_on"))?.card?.card?.imageGridCards?.info)
 
-                const restaurants = json?.data?.cards?.find((x) => x?.card?.card?.id === "restaurant_grid_listing")?.card?.card?.gridElements?.infoWithStyle?.restaurants
+                setTopChainRestaurants(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("top_brands"))?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-                const imgCarousel = json?.data?.cards?.find(x => x?.card?.card?.id === "whats_on_your_mind")?.card?.card?.gridElements?.infoWithStyle?.info
-
-                const topChains = json?.data?.cards?.find(x => x?.card?.card?.id === "top_brands_for_you")?.card?.card?.gridElements?.infoWithStyle?.restaurants
-
-                setImageCarousel(imgCarousel)
-                setTopChains(topChains)
-                setAllRestaurants(restaurants)
-                setFilteredRestaurants(restaurants)
+                setAllRestaurants(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("restaurant_grid"))?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             }
-        }
-        catch (err) {
-            console.log(err)
+        } catch (err) {
+            console.log(err.message);
         }
     }
 
-    return [ImageCarousel, setImageCarousel, TopChains, setTopChains, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants]
+    return [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants]
 }
-
-export default useRestaurant

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Sf Pro Reg";
+  src: url("fonts/SF-PRO-DISPLAY-REGULAR.OTF");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Pro Med";
+  src: url("fonts/SF-PRO-DISPLAY-MEDIUM.OTF");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Pro Bold";
+  src: url("fonts/SF-PRO-DISPLAY-BOLD.OTF");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Compact Reg";
+  src: url("fonts/SF-COMPACT-DISPLAY-REGULAR.otf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Compact Med";
+  src: url("fonts/SF-COMPACT-DISPLAY-MEDIUM.otf");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Compact SemiBold";
+  src: url("fonts/SF-COMPACT-DISPLAY-SEMIBOLD.ttf");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sf Compact Bold";
+  src: url("fonts/SF-COMPACT-DISPLAY-BOLD.ttf");
+  font-weight: 700;
+  font-display: swap;
+}
+
+.divider {
+  border: 1px solid rgb(240,240,245);
+  margin: 32px 0;
+  color: #02060c99;
+}
