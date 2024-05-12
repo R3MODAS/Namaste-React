@@ -15,7 +15,7 @@ import TopChainCard from '@/components/Home/TopChainCard';
 import { useEffect } from 'react';
 
 const Home = () => {
-  const [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants] = useRestaurant()
+  const [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants] = useRestaurant()
 
   if (AllRestaurants.length <= 0) {
     return <ShimmerHome />
@@ -25,7 +25,7 @@ const Home = () => {
     <div className='mt-24 mb-10 container mx-auto'>
       {/* Carousel Section */}
       {
-        (CarouselData && setCarouselData.length !== 0) &&
+        (CarouselData && CarouselData.length !== 0) &&
         <>
           <section>
             <h2 className="font-SfCompactBold text-2xl">What's on your mind?</h2>
@@ -86,10 +86,11 @@ const Home = () => {
         <>
           <section>
             <h2 className="font-SfCompactBold text-2xl">Restaurants with Online Food Delivery in Bangalore</h2>
-            <FilterButtons />
+            <FilterButtons AllRestaurants={AllRestaurants} setAllRestaurants={setAllRestaurants} FilteredRestaurants={FilteredRestaurants} setFilteredRestaurants={setFilteredRestaurants} />
+
             <div className='restaurant-container flex justify-start items-center flex-wrap gap-8 mt-10'>
               {
-                AllRestaurants?.map((res) => (
+                FilteredRestaurants?.map((res) => (
                   <Link to={`/restaurants/${res?.info?.id}`} key={res?.info?.id}>
                     <RestaurantCard info={res?.info} />
                   </Link>
@@ -97,7 +98,6 @@ const Home = () => {
               }
             </div>
           </section>
-
         </>
       }
     </div>

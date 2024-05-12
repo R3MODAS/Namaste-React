@@ -4,6 +4,7 @@ export const useRestaurant = () => {
     const [CarouselData, setCarouselData] = useState([])
     const [TopChainRestaurants, setTopChainRestaurants] = useState([])
     const [AllRestaurants, setAllRestaurants] = useState([])
+    const [FilteredRestaurants, setFilteredRestaurants] = useState([])
 
     useEffect(() => {
         fetchRestaurantData()
@@ -23,11 +24,13 @@ export const useRestaurant = () => {
                 setTopChainRestaurants(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("top_brands"))?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
                 setAllRestaurants(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("restaurant_grid"))?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+                setFilteredRestaurants(json?.data?.cards?.find(card => card?.card?.card?.id?.includes("restaurant_grid"))?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             }
         } catch (err) {
             console.log(err.message);
         }
     }
 
-    return [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants]
+    return [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants]
 }
