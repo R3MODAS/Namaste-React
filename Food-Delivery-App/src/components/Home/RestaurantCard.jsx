@@ -1,4 +1,5 @@
 import { RES_IMG, RES_IMG_GRAY } from "@/utils/constants"
+import star from "@/assets/rating.png"
 
 const RestaurantCard = ({ info }) => {
     const { name, cloudinaryImageId, avgRating, sla, cuisines, areaName, availability } = info
@@ -25,7 +26,7 @@ const RestaurantCard = ({ info }) => {
                             <h3 className="font-SfProMed text-lg text-color-1">{truncateResName(name)}</h3>
                             <div className="flex items-center font-SfProMed">
                                 <div className="flex items-center gap-x-1">
-                                    <img className="w-5" src="assets/rating.png" alt="rating" />
+                                    <img className="w-5" src={star} alt="rating" />
                                     <span>{avgRating} • </span>{slaString}
                                 </div>
                             </div>
@@ -43,7 +44,7 @@ const RestaurantCard = ({ info }) => {
                             <h3 className="font-SfProMed text-lg text-color-1">{truncateResName(name)}</h3>
                             <div className="flex items-center font-SfProMed">
                                 <div className="flex items-center gap-x-1">
-                                    <img className="w-5" src="assets/rating.png" alt="rating" />
+                                    <img className="w-5" src={star} alt="rating" />
                                     <span>{avgRating} • </span>{slaString}
                                 </div>
                             </div>

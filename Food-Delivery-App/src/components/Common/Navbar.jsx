@@ -3,6 +3,7 @@ import { IoCartOutline, IoLocationOutline } from 'react-icons/io5';
 import { FaRegUser } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleLocationSidebar, toggleLoginSidebar } from '@/slices/appSlice';
+import logo from "@/assets/logo.png"
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -23,10 +24,10 @@ const Navbar = () => {
     <header className='shadow fixed w-full bg-white top-0 left-0 right-0 z-10'>
       <div className='flex items-center justify-between container mx-auto py-3'>
         <div className='flex font-SfProRef gap-x-4'>
-          <Link to={"/"}><img className='h-14' src="assets/logo.png" alt="" /></Link>
+          <Link to={"/"}><img className='h-14' src={logo} alt="logo" /></Link>
 
           <button className='flex items-center gap-x-1 text-color-2' onClick={handleLocationSidebar}>
-            <span className='font-SfProMed'>{userLocation? userLocation?.city : "Bangalore"}</span>
+            <span className='font-SfProMed'>{userLocation ? userLocation?.city : "Bangalore"}</span>
             <IoLocationOutline className='text-lg' />
           </button>
         </div>
