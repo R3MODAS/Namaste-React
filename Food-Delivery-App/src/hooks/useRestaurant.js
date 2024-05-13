@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export const useRestaurant = () => {
     const [CarouselData, setCarouselData] = useState([])
@@ -10,9 +11,13 @@ export const useRestaurant = () => {
         fetchRestaurantData()
     }, [])
 
+    const userLocation = useSelector(state => state.location.userLocation)
+    const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
+    const lng = userLocation?.lng ? userLocation?.lng : 77.5945627    
+
     const fetchRestaurantData = async () => {
         try {
-            const res = await fetch(import.meta.env.VITE_FOOD_APP_BASE_URL + `/api/proxy/swiggy/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
+            const res = await fetch(import.meta.env.VITE_FOOD_APP_BASE_URL + `/api/proxy/swiggy/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
             if (!res.ok) {
                 const err = res.status
                 throw new Error(err.message)

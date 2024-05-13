@@ -12,9 +12,12 @@ import RestaurantCard from '@/components/Home/RestaurantCard';
 import { Link } from 'react-router-dom';
 import FilterButtons from '@/components/Home/FilterButtons';
 import TopChainCard from '@/components/Home/TopChainCard';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   const [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants] = useRestaurant()
+
+  const userLocation = useSelector(state => state.location.userLocation)
 
   if (AllRestaurants.length <= 0) {
     return <ShimmerHome />
@@ -55,7 +58,7 @@ const Home = () => {
         (TopChainRestaurants && TopChainRestaurants.length !== 0) &&
         <>
           <section>
-            <h2 className="font-SfCompactBold text-2xl">Top Restaurants in Bangalore</h2>
+            <h2 className="font-SfCompactBold text-2xl">Top Restaurants in {userLocation ? userLocation?.city : "Bangalore"}</h2>
             <Carousel className="relative">
               <div className="absolute right-5 -top-4 z-[1]">
                 <CarouselPrevious className="disabled:bg-color-2/80 text-color-1 -left-20 bg-color-2 hover:bg-color-2/80" />
@@ -84,7 +87,7 @@ const Home = () => {
         (AllRestaurants && AllRestaurants.length !== 0) &&
         <>
           <section>
-            <h2 className="font-SfCompactBold text-2xl">Restaurants with Online Food Delivery in Bangalore</h2>
+            <h2 className="font-SfCompactBold text-2xl">Restaurants with Online Food Delivery in {userLocation ? userLocation?.city : "Bangalore"}</h2>
             <FilterButtons AllRestaurants={AllRestaurants} setAllRestaurants={setAllRestaurants} FilteredRestaurants={FilteredRestaurants} setFilteredRestaurants={setFilteredRestaurants} />
 
             <div className='restaurant-container flex justify-start items-center flex-wrap gap-8 mt-10'>
