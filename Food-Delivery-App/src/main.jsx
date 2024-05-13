@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './styles/index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Checkout, Home, RestaurantMenu } from './pages'
-import Error from './components/Common/Error.jsx'
+import App from '@/App'
+import { Checkout, Home, Menu  } from '@/pages'
+import Error from '@/components/Common/Error.jsx'
+import '@/styles/index.css'
+import ShimmerHome from '@/components/Shimmer/ShimmerHome'
+import ShimmerMenu from '@/components/Shimmer/ShimmerMenu'
 
 const appRouter = createBrowserRouter([
   {
@@ -13,15 +15,15 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Suspense fallback={<ShimmerHome />}><Home /></Suspense> 
       },
       {
         path: "/checkout",
         element: <Checkout />
       },
       {
-        path: "/restaurants/:id",
-        element: <RestaurantMenu />
+        path: "/restaurants/:resId",
+        element: <Suspense fallback={<ShimmerMenu />}><Menu /></Suspense>
       }
     ],
     errorElement: <Error />

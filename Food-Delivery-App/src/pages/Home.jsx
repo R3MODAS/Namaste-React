@@ -12,7 +12,6 @@ import RestaurantCard from '@/components/Home/RestaurantCard';
 import { Link } from 'react-router-dom';
 import FilterButtons from '@/components/Home/FilterButtons';
 import TopChainCard from '@/components/Home/TopChainCard';
-import { useEffect } from 'react';
 
 const Home = () => {
   const [CarouselData, setCarouselData, TopChainRestaurants, setTopChainRestaurants, AllRestaurants, setAllRestaurants, FilteredRestaurants, setFilteredRestaurants] = useRestaurant()

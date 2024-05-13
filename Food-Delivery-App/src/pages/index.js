@@ -1,5 +1,7 @@
-import Home from "./Home";
-import Checkout from "./Checkout";
-import RestaurantMenu from "./RestaurantMenu";
+import { lazy } from "react";
 
-export { Home, Checkout, RestaurantMenu }
+const Home = lazy(() => import("./Home"))
+const Checkout = lazy(() => import("./Checkout"))
+const Menu = lazy(() => import("./Menu"))
+
+export { Home, Checkout, Menu }

@@ -54,5 +54,9 @@
 .divider {
   border: 1px solid rgb(240,240,245);
   margin: 32px 0;
-  color: #02060c99;
+  color: rgba(2, 6, 12, 0.6);
+}
+
+.filter-btn.active span{
+    display: block;
 }
