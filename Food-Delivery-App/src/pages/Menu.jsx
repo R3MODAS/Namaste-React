@@ -1,35 +1,36 @@
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import RestaurantInfo from '@/components/Menu/RestaurantInfo'
+import ShimmerMenu from '@/components/Shimmer/ShimmerMenu'
+import { useRestaurantMenu } from '@/hooks/useRestaurantMenu'
 import { useParams } from 'react-router-dom'
 
 const Menu = () => {
   const { resId } = useParams()
-  const userLocation = useSelector(state => state.location.userLocation)
-  const lat = userLocation?.lat ? userLocation?.lat : 12.9715987
-  const lng = userLocation?.lng ? userLocation?.lng : 77.5945627
+  const { ResInfo, ResMenu } = useRestaurantMenu(resId)
 
-  const fetchRestaurantMenuData = async () => {
-    try {
-      const res = await fetch(import.meta.env.VITE_FOOD_APP_BASE_URL + `/api/proxy/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`)
-      if (!res.ok) {
-        const err = res.status
-        throw new Error(err.message)
-      }
-      else {
-        const json = await res.json()
-        console.log(json?.data?.cards)
-      }
-    } catch (err) {
-      console.log(err.message)
-    }
+  if (Object.keys(ResMenu).length <= 0) {
+    return <ShimmerMenu />
   }
 
-  useEffect(() => {
-    fetchRestaurantMenuData()
-  }, [])
-
   return (
-    <div className='my-24 container mx-auto'>RestaurantMenu</div>
+    <div className="mx-auto mt-24 mb-10 2xl:w-1/2 md:w-4/5 sm:px-7 px-2">
+      <>
+        <RestaurantInfo ResInfo = {ResInfo} />
+        <hr className='border-1 border-dashed border-b-[#d3d3d3] my-4'></hr>
+
+        {
+          ResInfo?.isOpen ?
+            <>
+              <ul className='main-menu-container'>
+                {
+
+                }
+              </ul>
+            </>
+            :
+            <h2 className="resMsg font-ProximaNovaMed text-sm">Uh-oh! The outlet is not accepting orders at the moment. We&apos;re working to get them back online</h2>
+        }
+      </>
+    </div>
   )
 }
 
