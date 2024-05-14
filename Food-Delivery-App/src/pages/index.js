@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 const Home = lazy(() => import("./Home"))
-const Checkout = lazy(() => import("./Checkout"))
 const Menu = lazy(() => import("./Menu"))
+import Checkout from "./Checkout";
 
 export { Home, Checkout, Menu }
